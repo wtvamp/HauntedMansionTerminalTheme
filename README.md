@@ -1,0 +1,77 @@
+# Haunted Mansion — a terminal theme
+
+999 happy haunts for your terminal: a color scheme for eight terminal emulators, a
+zsh prompt, a random ghost and epitaph on every new shell, and a ride you can take
+when the build is slow.
+
+```
+ ⚰ ~/Source/HauntedMansionTerminalTheme  ⑂ main ✦2 ↑1
+ †
+```
+
+## Install
+
+```sh
+git clone https://github.com/wtvamp/HauntedMansionTerminalTheme.git
+cd HauntedMansionTerminalTheme
+make install
+```
+
+Then add to `~/.zshrc`:
+
+```sh
+export HM_ROOT=/path/to/HauntedMansionTerminalTheme
+for f in ~/.zshrc.d/*.zsh(N); do source $f; done
+```
+
+And point your terminal at the matching file in `dist/`:
+
+| Terminal | File | How |
+|---|---|---|
+| iTerm2 | `dist/iterm2/haunted-mansion.itermcolors` | double-click, then Preferences → Profiles → Colors → Color Presets |
+| Ghostty | `dist/ghostty/haunted-mansion` | copy to `~/.config/ghostty/themes/`, then `theme = haunted-mansion` |
+| Kitty | `dist/kitty/haunted-mansion.conf` | `include haunted-mansion.conf` in `kitty.conf` |
+| Alacritty | `dist/alacritty/haunted-mansion.toml` | add to `import` in `alacritty.toml` |
+| WezTerm | `dist/wezterm/haunted-mansion.toml` | copy to `~/.config/wezterm/colors/`, then `color_scheme = "Haunted Mansion"` |
+| Windows Terminal | `dist/windows-terminal/haunted-mansion.json` | paste into the `schemes` array in `settings.json` |
+| VS Code | `dist/vscode/haunted-mansion.json` | merge into `settings.json` |
+
+You do not need Go to use the theme — `dist/` is committed.
+
+## The ride
+
+```sh
+doombuggy                     # the full ride
+doombuggy --skip-intro        # straight past the stretching room
+doombuggy --frame graveyard   # one scene, one frame, to stdout
+doombuggy --list              # what scenes exist
+doombuggy --color 16          # force a degraded palette to check it still reads
+```
+
+`space` holds, `←`/`→` move between scenes, `q` lets you leave. Which is more than
+most guests get.
+
+## Developing
+
+```sh
+make build      # bin/conjure, bin/doombuggy
+make generate   # palette -> dist/
+make test       # everything
+make check      # what CI runs: build, test, and verify dist/ is not stale
+make demo       # run the ride without installing
+```
+
+Everything visual comes from `palette/haunted-mansion.yaml`. Change a color there
+and run `make generate`; never edit anything in `dist/` by hand, and never write a
+hex value into a Go file or a shell script — there is a test that fails if you do.
+
+Adding a quote or a ghost is a text file, not a code change: append a line to
+`content/quotes.txt`, or drop an `.txt` into `content/ghosts/`.
+
+See `CLAUDE.md` for the architecture and the rules that govern color choices.
+
+## Original work
+
+The ghost art is drawn for this repo and the quotes are written for it. This is not
+a transcription of any ride's script, and carries no Disney marks or trademarked
+character names. It is an homage in ASCII, and an unofficial one.

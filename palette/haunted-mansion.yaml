@@ -1,0 +1,84 @@
+# The Haunted Mansion palette — the single source of truth.
+#
+# Every emulator config in dist/, every color in the zsh prompt, and every style in
+# the ride is generated from this file. Never hardcode a hex value anywhere else.
+#
+# The governing rule: semantics beat theme. ANSI red must read as *error* and green
+# as *success* to someone who has never heard of this repo. Theme the hue within the
+# slot; never reassign the slot. `make test` enforces contrast, separation and
+# colorblind-distinguishability — a change that violates those fails the build.
+
+name: Haunted Mansion
+slug: haunted-mansion
+author: Leota
+description: >-
+  999 happy haunts, rendered in parchment and ectoplasm. A violet-tinted crypt dark
+  with gaslight brass, oxblood velvet and Pepper's-ghost blue.
+
+ui:
+  background:          "#14121A"  # crypt dark, violet-tinted rather than neutral black
+  foreground:          "#D8CBB0"  # parchment / bone
+  cursor:              "#9FE870"  # ectoplasm
+  cursor_text:         "#14121A"
+  selection_background: "#3A3346"  # doom buggy upholstery
+  selection_foreground: "#F0E6D2"
+
+# The sixteen ANSI slots. `name` is the lore; the slot is the contract.
+ansi:
+  - slot: 0
+    key: black
+    name: doom buggy
+    normal: "#1C1826"
+    bright: "#3A3346"
+  - slot: 1
+    key: red
+    name: oxblood velvet
+    normal: "#BC4040"
+    bright: "#E56565"
+  - slot: 2
+    key: green
+    name: madame leota
+    normal: "#7DBE5C"
+    bright: "#9FE870"
+  - slot: 3
+    key: yellow
+    name: gaslight brass
+    normal: "#BE9722"
+    bright: "#EFC04F"
+  - slot: 4
+    key: blue
+    name: moonlight
+    normal: "#4A6FA5"
+    bright: "#6E93C4"
+  - slot: 5
+    key: magenta
+    name: hatbox ghost
+    normal: "#7E5AA2"
+    bright: "#A97FD4"
+  - slot: 6
+    key: cyan
+    name: ballroom pepper
+    normal: "#6FA8B5"
+    bright: "#A8D8E8"
+  - slot: 7
+    key: white
+    name: parchment
+    normal: "#D8CBB0"
+    bright: "#F0E6D2"
+
+# Named roles for the prompt and the ride. Each MUST resolve to an ansi key or a ui
+# key above — these are aliases, not new colors, so a palette change propagates and
+# the contrast tests cover them for free.
+roles:
+  prompt_path:      cyan
+  prompt_git_clean: green
+  prompt_git_dirty: yellow
+  prompt_git_ahead: magenta
+  prompt_error:     red
+  prompt_symbol:    magenta
+  greeting_ghost:   bright_cyan
+  greeting_quote:   bright_magenta
+  ride_candle:      bright_yellow
+  ride_spectre:     bright_cyan
+  ride_ectoplasm:   bright_green
+  ride_velvet:      red

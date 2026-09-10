@@ -1,0 +1,52 @@
+# Quotes for the terminal greeting. One per line. Blank lines and # comments ignored.
+#
+# ORIGINAL WORK. These are written for this repo in the register of a gothic
+# amusement dark ride — they are not a transcription of any ride's script. Keep it
+# that way: if you can hear a specific recorded voice saying it verbatim, rewrite it.
+#
+# Style: dry, courteous, faintly threatening. The host is delighted you came and
+# has no intention of letting you leave. Keep each under ~90 characters so it sits
+# on one line in a narrow terminal.
+
+Do not be alarmed. The walls are supposed to do that.
+There is no turning back now. There is, however, a gift shop.
+Kindly keep your hands, arms and soul inside the buggy at all times.
+The management assumes no responsibility for anything that follows you home.
+Our ghosts are perfectly harmless. Our paperwork is another matter.
+Nine hundred and ninety-nine haunts reside here. Room, as ever, for one more.
+Mind the step. It has a habit of not being there.
+The candles were lit some time ago. Nobody remembers by whom.
+We keep the lights low. The residents prefer to be suggested rather than seen.
+Every door in this corridor is locked. Every door in this corridor is knocking.
+The portrait is watching you. It considers this its job.
+The organ plays nightly. The organist declined to stay for the applause.
+Your reservation was made a very long time ago.
+The clock has no hands. It is always precisely late enough.
+Something is in the seat behind you. It is being very polite about it.
+The wallpaper is not moving. The wallpaper would like you to stop staring.
+Do sign the guest book. Most visitors find they have already signed it.
+The staircase leads nowhere, which has never discouraged anyone from climbing it.
+A cold draught means nothing. It means nothing at all. Please keep walking.
+We have no exits. We have only doors that are used in the other direction.
+The mirror adds one to every reflection. Do not count.
+Dust settles here in the shape of footprints.
+The house does not creak. The house is clearing its throat.
+Your host is dead, but remains extremely attentive.
+Please do not feed the spectres. They are on a very strict diet of visitors.
+The raven has been here longer than the house. Nobody has told it that.
+Tea is served at midnight. Attendance is not optional.
+The crystal ball is only a formality. She already knows.
+There is a hitchhiker in your terminal. It seemed rude to mention it earlier.
+The graveyard is a lively place, all things considered.
+Every mirror in this house is honest. That is the problem with them.
+The chandelier has not fallen yet. Yet is doing a great deal of work in that sentence.
+We are so glad you could make it. We were fairly certain you would.
+Your coat has been taken. Your coat will not be returned.
+The east wing is closed. The east wing has always been closed. There is no east wing.
+Listen: that is the sound of the house counting.
+A séance is in progress. You are, regrettably, the subject.
+The floorboards remember everyone. The floorboards are not discreet.
+Do enjoy your stay. Do is such a hopeful little word.
+The bride has been waiting in the attic. She is very patient and very married.
+Nothing here is haunted. Everything here is simply still occupied.
+The exit sign is a decoration. We felt the room needed something cheerful.
