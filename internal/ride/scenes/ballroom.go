@@ -13,7 +13,7 @@ func init() { ride.Register(ballroom{}) }
 type ballroom struct{}
 
 func (ballroom) Name() string  { return "ballroom" }
-func (ballroom) Title() string { return "The Grand Ballroom" }
+func (ballroom) Title() string { return "The Grand Hall" }
 func (ballroom) Ticks() int    { return 72 }
 
 func (b ballroom) Render(f ride.Frame) string {
@@ -53,7 +53,7 @@ func (b ballroom) Render(f ride.Frame) string {
 	sb.WriteString("╰" + strings.Repeat("─", w) + "╯")
 
 	art := f.Style.Paint("ride_spectre", sb.String())
-	art += "\n\n" + f.Style.Paint("ride_candle", "   the organ plays. nobody stayed for the applause.")
+	art += "\n\n" + f.Style.Paint("ride_candle", "   Master Gracey's ballroom. The waltz has not stopped since.")
 	return ride.Center(art, f.Width, f.Height)
 }
 

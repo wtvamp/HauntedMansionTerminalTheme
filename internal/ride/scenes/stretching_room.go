@@ -61,15 +61,15 @@ func (s stretchingRoom) Render(f ride.Frame) string {
 	caption := ""
 	switch {
 	case f.Progress < 0.3:
-		caption = "the room is quite ordinary"
+		caption = "Welcome, foolish mortals..."
 	case f.Progress < 0.6:
-		caption = "...or is this room actually stretching?"
+		caption = "Is this haunted room actually stretching?"
 	case f.Progress < 0.85:
-		caption = "and there are no windows. and no doors."
+		caption = "This chamber has no windows and no doors..."
 	default:
-		caption = "which offers you this chilling challenge:"
+		caption = "...which offers you this chilling challenge:"
 	}
-	art += "\n\n" + f.Style.Paint("ride_candle", center(caption, 20))
+	art += "\n\n" + f.Style.Paint("ride_candle", center(caption, 44))
 
 	return ride.Center(art, f.Width, f.Height)
 }

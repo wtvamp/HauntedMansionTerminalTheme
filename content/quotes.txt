@@ -1,12 +1,11 @@
 # Quotes for the terminal greeting. One per line. Blank lines and # comments ignored.
 #
-# ORIGINAL WORK. These are written for this repo in the register of a gothic
-# amusement dark ride — they are not a transcription of any ride's script. Keep it
-# that way: if you can hear a specific recorded voice saying it verbatim, rewrite it.
+# A personal, unofficial Haunted Mansion tribute. Character names and the short
+# well-known lines are used freely here; Disney owns them, this repo does not.
 #
-# Style: dry, courteous, faintly threatening. The host is delighted you came and
-# has no intention of letting you leave. Keep each under ~90 characters so it sits
-# on one line in a narrow terminal.
+# Style: dry, courteous, faintly threatening. The Ghost Host is delighted you came
+# and has no intention of letting you leave. Keep each under ~90 characters so it
+# sits on one line in a narrow terminal.
 
 Do not be alarmed. The walls are supposed to do that.
 There is no turning back now. There is, however, a gift shop.
@@ -50,3 +49,40 @@ Do enjoy your stay. Do is such a hopeful little word.
 The bride has been waiting in the attic. She is very patient and very married.
 Nothing here is haunted. Everything here is simply still occupied.
 The exit sign is a decoration. We felt the room needed something cheerful.
+
+# --- The Ghost Host ---
+Welcome, foolish mortals, to the Haunted Mansion.
+I am your host. Your ghost host.
+Kindly step all the way in please, and make room for everyone.
+There's no turning back now.
+Our tour begins here in this gallery, where you see paintings of some of our guests.
+Is this haunted room actually stretching? Or is it your imagination?
+And consider this dismaying observation: this chamber has no windows and no doors.
+Which offers you this chilling challenge: to find a way out!
+Of course, there's always my way.
+Oh, I didn't mean to frighten you prematurely.
+The real chills come later.
+Now, as they say, look alive, and we'll continue our little tour.
+And let's all stay together, please.
+Do not pull down on the safety bar, please. I will lower it for you.
+Now a warning to all of you: do not stray from the Doom Buggy.
+Hurry baaaack. Hurry baaaack. Be sure to bring your death certificate.
+If you decide to join us, final arrangements may be made at the end of the tour.
+
+# --- Madame Leota ---
+Serpents and spiders, tail of a rat: call in the spirits, wherever they're at.
+Rap on a table, it's time to respond. Send us a message from somewhere beyond.
+Goblins and ghoulies from last Halloween: awaken the spirits with your tambourine.
+Wizards and witches, wherever you dwell, give us a hint by ringing a bell.
+
+# --- The residents ---
+Madame Leota is in the crystal ball. She was in there before the ball was.
+The Hatbox Ghost's head has gone missing again. It is in the hatbox. It is always in the hatbox.
+Constance Hatchaway has been married five times. She is between husbands.
+Ezra, Phineas and Gus are looking for a ride. They have found one.
+Master Gracey regrets that he is unable to attend you in person.
+The Bride's ring is set in the pavement outside. Do not step on it. Do step on it.
+Little Leota reminds you to bring your death certificate.
+The Caretaker and his dog have seen everything and explained nothing.
+Pickwick is hanging around the stretching room. He has been for years.
+The Singing Busts are in excellent voice tonight, considering.

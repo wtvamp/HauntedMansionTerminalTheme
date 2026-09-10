@@ -22,7 +22,7 @@ func (h hitchhikers) Render(f ride.Frame) string {
 	if !ok {
 		// The art is embedded, so this only fires if someone deleted the file —
 		// better a plain line than a blank scene.
-		art = "three ghosts follow you home"
+		art = "Ezra, Phineas and Gus have found a ride"
 	}
 
 	// Slide in from the right over the first half, then hold.
@@ -49,7 +49,7 @@ func (h hitchhikers) Render(f ride.Frame) string {
 		}
 	}
 	if f.Progress > 0.8 {
-		out += "\n\n" + f.Style.Paint("ride_velvet", "  hurry baaaack...")
+		out += "\n\n" + f.Style.Paint("ride_velvet", "  Hurry baaaack. Hurry baaaack...")
 	}
 	return ride.Center(out, f.Width, f.Height)
 }

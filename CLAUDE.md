@@ -141,8 +141,19 @@ legible 16-color rendering, because `TERM=xterm` over ssh is a real audience —
 renders every scene at every tick at all four capabilities, and `TestNoColorEmitsNoEscapes` keeps the
 bottom of the ladder honest.
 
-## Original work only
+## Trademarks and tone
 
-Ghost art is drawn for this repo; quotes are written for it in the ride's register. Not a transcription
-of any ride's script, and no Disney marks or trademarked character names in the assets. If you can hear
-a specific recorded voice saying a line verbatim, rewrite it.
+This is a personal, unofficial tribute. Character names and the well-known short lines are used
+freely — Madame Leota, the Hatbox Ghost, Constance, Ezra/Phineas/Gus, Master Gracey, the Ghost Host,
+"Welcome, foolish mortals", "Hurry baaaack". **Disney owns all of that; this repo does not**, and the
+README says so. Warren has made that call for his own repo — do not re-litigate it or quietly water
+the names back down to generic ghosts.
+
+Two things still apply, for craft rather than caution:
+
+- **Don't paste the script wholesale.** Short signature lines carry the register; a transcript of the
+  full Ghost Host monologue is a wall of text nobody reads in a 30ms greeting.
+- **Keep the voice consistent.** Dry, courteous, faintly threatening. The host is delighted you came
+  and has no intention of letting you leave. A quote that reads as a joke about ghosts rather than a
+  line spoken by one is wrong for this repo, however funny it is. The graveyard epitaphs are the one
+  deliberate exception — they are developer jokes on purpose.

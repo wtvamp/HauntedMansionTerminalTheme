@@ -54,6 +54,6 @@ func (c corridor) Render(f ride.Frame) string {
 	// centred on its own.
 	art += "\n" + f.Style.Paint("ride_ectoplasm", strings.TrimRight(rows[6].String(), " "))
 
-	art += "\n\n" + f.Style.Paint("ride_candle", "  every door is locked. every door is knocking.")
+	art += "\n\n" + f.Style.Paint("ride_candle", "  Do not stray from the Doom Buggy.")
 	return ride.Center(art, f.Width, f.Height)
 }

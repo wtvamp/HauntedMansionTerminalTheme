@@ -93,7 +93,7 @@ func (m Model) advance() (Model, tea.Cmd) {
 
 func (m Model) View() string {
 	if m.done {
-		return m.style.Role("ride_ectoplasm").Render("\n  ...hurry baaaack.\n\n")
+		return m.style.Role("ride_ectoplasm").Render("\n  Hurry baaaack. Be sure to bring your death certificate.\n\n")
 	}
 	s := m.scenes[m.current]
 

@@ -70,8 +70,9 @@ Adding a quote or a ghost is a text file, not a code change: append a line to
 
 See `CLAUDE.md` for the architecture and the rules that govern color choices.
 
-## Original work
+## Unofficial tribute
 
-The ghost art is drawn for this repo and the quotes are written for it. This is not
-a transcription of any ride's script, and carries no Disney marks or trademarked
-character names. It is an homage in ASCII, and an unofficial one.
+A personal fan project and an affectionate one. *The Haunted Mansion*, its characters and its script
+are trademarks and copyrights of **The Walt Disney Company**. This repository is not affiliated with,
+endorsed by, or sponsored by Disney. The ASCII art is drawn for this repo; the character names and
+quoted lines are Disney's.
