@@ -19,10 +19,14 @@
 	# Added and removed are deliberately the theme's green and red rather than
 	# anything more atmospheric: a diff is the one place where getting the
 	# direction wrong costs real work.
-	plus-style = syntax "#5FBE8C22"
-	plus-emph-style = syntax "#5FBE8C44"
-	minus-style = syntax "#C1484F22"
-	minus-emph-style = syntax "#C1484F44"
+	#
+	# These are the hue mixed most of the way into the background, not the hue
+	# itself. delta has no alpha channel and silently truncates an 8-digit hex
+	# to six, so "#5FBE8C22" paints the whole line in full-saturation green.
+	plus-style = syntax "#1D2E2B"
+	plus-emph-style = syntax "#2B4D40"
+	minus-style = syntax "#2D1B21"
+	minus-emph-style = syntax "#4C252B"
 
 	line-numbers-minus-style = "#C1484F"
 	line-numbers-plus-style = "#5FBE8C"

@@ -211,6 +211,28 @@ func (v *View) RoleNames() []string {
 var funcs = template.FuncMap{
 	"upper": strings.ToUpper,
 	"lower": strings.ToLower,
+	// mix blends two palette colours, t=0 giving the first and t=1 the second.
+	// Needed because delta wants a *background* tint for added and removed
+	// lines: it has no alpha, and an 8-digit hex is silently truncated to 6,
+	// which paints the line in full-saturation green and is unreadable.
+	"mix": func(a, b string, t float64) (string, error) {
+		ca, err := palette.ParseHex(a)
+		if err != nil {
+			return "", err
+		}
+		cb, err := palette.ParseHex(b)
+		if err != nil {
+			return "", err
+		}
+		if t < 0 {
+			t = 0
+		}
+		if t > 1 {
+			t = 1
+		}
+		lerp := func(x, y uint8) uint8 { return uint8(float64(x)*(1-t) + float64(y)*t) }
+		return palette.Color{R: lerp(ca.R, cb.R), G: lerp(ca.G, cb.G), B: lerp(ca.B, cb.B)}.Hex(), nil
+	},
 	// list and dict let a template declare a table of rows inline. The bat
 	// theme is thirty near-identical XML blocks; without these it is thirty
 	// copies of the same twelve lines.

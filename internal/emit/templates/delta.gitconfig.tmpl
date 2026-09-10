@@ -27,10 +27,14 @@
 	# Added and removed are deliberately the theme's green and red rather than
 	# anything more atmospheric: a diff is the one place where getting the
 	# direction wrong costs real work.
-	plus-style = syntax "{{ $c2 }}22"
-	plus-emph-style = syntax "{{ $c2 }}44"
-	minus-style = syntax "{{ $c1 }}22"
-	minus-emph-style = syntax "{{ $c1 }}44"
+	#
+	# These are the hue mixed most of the way into the background, not the hue
+	# itself. delta has no alpha channel and silently truncates an 8-digit hex
+	# to six, so "#5FBE8C22" paints the whole line in full-saturation green.
+	plus-style = syntax "{{ mix $bg $c2 0.16 }}"
+	plus-emph-style = syntax "{{ mix $bg $c2 0.34 }}"
+	minus-style = syntax "{{ mix $bg $c1 0.16 }}"
+	minus-emph-style = syntax "{{ mix $bg $c1 0.34 }}"
 
 	line-numbers-minus-style = "{{ $c1 }}"
 	line-numbers-plus-style = "{{ $c2 }}"
