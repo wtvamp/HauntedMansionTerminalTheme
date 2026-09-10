@@ -1,0 +1,1092 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - link "Flickr logo. If you click it, you'll go home" [ref=e5] [cursor=pointer]:
+      - /url: /
+    - list [ref=e8]:
+      - listitem [ref=e9]:
+        - link "Sign Up" [ref=e10] [cursor=pointer]:
+          - /url: /signup
+      - listitem [ref=e11]:
+        - link "Explore" [ref=e12] [cursor=pointer]:
+          - /url: /explore
+      - listitem [ref=e13]:
+        - link "MODE" [ref=e14] [cursor=pointer]:
+          - /url: https://modefestival.com/
+      - listitem [ref=e15]:
+        - link "✨ Get Pro" [ref=e16] [cursor=pointer]:
+          - /url: /account/upgrade/pro
+    - generic [ref=e18]:
+      - search [ref=e19]:
+        - textbox "Search" [ref=e20]:
+          - /placeholder: Photos, people, or groups
+        - button "Search" [ref=e21] [cursor=pointer]
+        - status
+      - list [ref=e22]:
+        - listitem [ref=e23]:
+          - link "Upload" [ref=e24] [cursor=pointer]:
+            - /url: /upload
+        - listitem [ref=e26]:
+          - link "Sign In" [ref=e27] [cursor=pointer]:
+            - /url: /signin/
+  - main [ref=e28]:
+    - table [ref=e29]:
+      - rowgroup [ref=e30]:
+        - row [ref=e31]:
+          - cell [ref=e32]:
+            - heading [level=1] [ref=e33]:
+              - link "The App Garden" [ref=e34] [cursor=pointer]:
+                - /url: /services/
+            - paragraph [ref=e35]:
+              - generic [ref=e36]:
+                - link "Create an App" [ref=e38] [cursor=pointer]:
+                  - /url: /services/apps/create/
+                - text: API Documentation
+                - link "Feeds" [ref=e40] [cursor=pointer]:
+                  - /url: /services/feeds/
+                - link "What is the App Garden?" [ref=e41] [cursor=pointer]:
+                  - /url: /services/apps/about/
+    - table [ref=e42]:
+      - rowgroup [ref=e43]:
+        - row [ref=e44]:
+          - cell [ref=e45]:
+            - paragraph [ref=e46]: The Flickr API is available for non-commercial use by outside developers. Commercial use is possible by prior arrangement.
+            - generic [ref=e47]:
+              - paragraph [ref=e48]: "Read these first:"
+              - list [ref=e49]:
+                - listitem [ref=e50]:
+                  - link "Developer Guide" [ref=e52] [cursor=pointer]:
+                    - /url: /services/developer/
+                - listitem [ref=e53]:
+                  - link "Overview" [ref=e55] [cursor=pointer]:
+                    - /url: /services/api/misc.overview.html
+                - listitem [ref=e56]:
+                  - link "Encoding" [ref=e58] [cursor=pointer]:
+                    - /url: /services/api/misc.encoding.html
+                - listitem [ref=e59]:
+                  - link "User Authentication" [ref=e61] [cursor=pointer]:
+                    - /url: /services/api/auth.oauth.html
+                - listitem [ref=e62]:
+                  - link "Dates" [ref=e64] [cursor=pointer]:
+                    - /url: /services/api/misc.dates.html
+                - listitem [ref=e65]:
+                  - link "Tags" [ref=e67] [cursor=pointer]:
+                    - /url: /services/api/misc.tags.html
+                - listitem [ref=e68]:
+                  - link "URLs" [ref=e70] [cursor=pointer]:
+                    - /url: /services/api/misc.urls.html
+                - listitem [ref=e71]:
+                  - link "Buddyicons" [ref=e73] [cursor=pointer]:
+                    - /url: /services/api/misc.buddyicons.html
+                - listitem [ref=e74]:
+                  - link "Collections" [ref=e76] [cursor=pointer]:
+                    - /url: /services/api/misc.collections.html
+                - listitem [ref=e77]:
+                  - link "Flickr APIs Terms of Use" [ref=e79] [cursor=pointer]:
+                    - /url: /services/api/tos/
+            - generic [ref=e80]:
+              - list [ref=e81]:
+                - listitem [ref=e82]:
+                  - link "API Keys" [ref=e84] [cursor=pointer]:
+                    - /url: /services/api/keys/
+                - listitem [ref=e85]:
+                  - link "Developers' mailing list" [ref=e87] [cursor=pointer]:
+                    - /url: http://groups.yahoo.com/group/yws-flickr/
+              - heading "Photo Upload API" [level=2] [ref=e88]
+              - list [ref=e89]:
+                - listitem [ref=e90]:
+                  - link "Uploading Photos" [ref=e92] [cursor=pointer]:
+                    - /url: /services/api/upload.api.html
+                - listitem [ref=e93]:
+                  - link "Replacing Photos" [ref=e95] [cursor=pointer]:
+                    - /url: /services/api/replace.api.html
+                - listitem [ref=e96]:
+                  - link "Example Request" [ref=e98] [cursor=pointer]:
+                    - /url: /services/api/upload.example.html
+                - listitem [ref=e99]:
+                  - link "Asynchronous Uploading" [ref=e101] [cursor=pointer]:
+                    - /url: /services/api/upload.async.html
+              - heading "Request Formats" [level=2] [ref=e102]
+              - list [ref=e103]:
+                - listitem [ref=e104]:
+                  - link "REST" [ref=e106] [cursor=pointer]:
+                    - /url: /services/api/request.rest.html
+                - listitem [ref=e107]:
+                  - link "XML-RPC" [ref=e109] [cursor=pointer]:
+                    - /url: /services/api/request.xmlrpc.html
+                - listitem [ref=e110]:
+                  - link "SOAP" [ref=e112] [cursor=pointer]:
+                    - /url: /services/api/request.soap.html
+              - heading "Response Formats" [level=2] [ref=e113]
+              - list [ref=e114]:
+                - listitem [ref=e115]:
+                  - link "REST" [ref=e117] [cursor=pointer]:
+                    - /url: /services/api/response.rest.html
+                - listitem [ref=e118]:
+                  - link "XML-RPC" [ref=e120] [cursor=pointer]:
+                    - /url: /services/api/response.xmlrpc.html
+                - listitem [ref=e121]:
+                  - link "SOAP" [ref=e123] [cursor=pointer]:
+                    - /url: /services/api/response.soap.html
+                - listitem [ref=e124]:
+                  - link "JSON" [ref=e126] [cursor=pointer]:
+                    - /url: /services/api/response.json.html
+                - listitem [ref=e127]:
+                  - link "PHP" [ref=e129] [cursor=pointer]:
+                    - /url: /services/api/response.php.html
+              - heading "API Kits" [level=2] [ref=e130]
+              - paragraph [ref=e131]:
+                - text: "Note: The API kits are not maintained or supported by Flickr and are used at your own risk. For API kit support please join the"
+                - link "developers mailing list" [ref=e132] [cursor=pointer]:
+                  - /url: http://groups.yahoo.com/group/yws-flickr/
+                - text: or contact the maintainers directly.
+              - text: ActionScript
+              - list [ref=e133]:
+                - listitem [ref=e134]:
+                  - link "flickr api" [ref=e135] [cursor=pointer]:
+                    - /url: http://www.mamata.com.br/flickrapi/src/flickrzuardi.zip
+                  - text: (
+                  - link "docs" [ref=e136] [cursor=pointer]:
+                    - /url: http://www.mamata.com.br/flickrapi/doc/index.html
+                  - text: )
+                - listitem [ref=e137]:
+                  - link "Flashr" [ref=e138] [cursor=pointer]:
+                    - /url: http://flashr.kelvinluck.com/
+                - listitem [ref=e139]:
+                  - link "Flickr API Interfaces REST" [ref=e140] [cursor=pointer]:
+                    - /url: http://glish.com/flickr/FlickrAPIInterfacesREST.as.txt
+                - listitem [ref=e141]:
+                  - link "as3 flickr lib" [ref=e142] [cursor=pointer]:
+                    - /url: http://code.google.com/p/as3flickrlib/
+              - text: C
+              - list [ref=e143]:
+                - listitem [ref=e144]:
+                  - link "Flickcurl" [ref=e145] [cursor=pointer]:
+                    - /url: http://librdf.org/flickcurl/
+              - text: Cold Fusion
+              - list [ref=e146]:
+                - listitem [ref=e147]:
+                  - link "CFlickr" [ref=e148] [cursor=pointer]:
+                    - /url: http://chris.m0nk3y.net/projects/CFlickr/
+              - text: Common Lisp
+              - list [ref=e149]:
+                - listitem [ref=e150]:
+                  - link "Clickr" [ref=e151] [cursor=pointer]:
+                    - /url: http://schani.wordpress.com/2006/07/20/lisping-flickr/
+              - text: cUrl
+              - list [ref=e152]:
+                - listitem [ref=e153]:
+                  - link "Curlr" [ref=e154] [cursor=pointer]:
+                    - /url: http://www.curlr.org/
+              - text: Delphi
+              - list [ref=e155]:
+                - listitem [ref=e156]:
+                  - link "dFlickr" [ref=e157] [cursor=pointer]:
+                    - /url: http://www.daremon.gr/flickr/
+              - text: Go
+              - list [ref=e158]:
+                - listitem [ref=e159]:
+                  - link "go-flickr" [ref=e160] [cursor=pointer]:
+                    - /url: https://github.com/mncaudill/go-flickr
+              - text: Java
+              - list [ref=e161]:
+                - listitem [ref=e162]:
+                  - link "Flickr4Java" [ref=e163] [cursor=pointer]:
+                    - /url: https://github.com/callmeal/Flickr4Java
+                - listitem [ref=e164]:
+                  - link "flickr-jandroid" [ref=e165] [cursor=pointer]:
+                    - /url: http://code.google.com/p/flickrj-android/
+              - text: .NET
+              - list [ref=e166]:
+                - listitem [ref=e167]:
+                  - link "Flickr.NET" [ref=e168] [cursor=pointer]:
+                    - /url: http://www.codeplex.com/Wiki/View.aspx?ProjectName=FlickrNet
+              - text: Node.js
+              - list [ref=e169]:
+                - listitem [ref=e170]:
+                  - link "flickr-sdk" [ref=e171] [cursor=pointer]:
+                    - /url: https://npmjs.org/package/flickr-sdk
+              - text: Objective-C
+              - list [ref=e172]:
+                - listitem [ref=e173]:
+                  - link "ObjectiveFlickr" [ref=e174] [cursor=pointer]:
+                    - /url: https://github.com/lukhnos/objectiveflickr
+                - listitem [ref=e175]:
+                  - link "FlickrKit" [ref=e176] [cursor=pointer]:
+                    - /url: https://github.com/devedup/FlickrKit
+              - text: Perl
+              - list [ref=e177]:
+                - listitem [ref=e178]:
+                  - link "Flickr::API" [ref=e179] [cursor=pointer]:
+                    - /url: http://search.cpan.org/~iamcal/Flickr-API/
+                - listitem [ref=e180]:
+                  - link "Flickr::API2" [ref=e181] [cursor=pointer]:
+                    - /url: https://github.com/TJC/Flickr-API2
+                - listitem [ref=e182]:
+                  - link "Flickr::Upload" [ref=e183] [cursor=pointer]:
+                    - /url: http://search.cpan.org/~cpb/Flickr-Upload/
+              - text: PHP
+              - list [ref=e184]:
+                - listitem [ref=e185]:
+                  - link "PEAR::Flickr_API" [ref=e186] [cursor=pointer]:
+                    - /url: http://code.iamcal.com/php/flickr/readme.htm
+                - listitem [ref=e187]:
+                  - link "phpFlickr" [ref=e188] [cursor=pointer]:
+                    - /url: http://www.phpflickr.com/
+              - text: PHP5
+              - list [ref=e189]:
+                - listitem [ref=e190]:
+                  - link "Phlickr" [ref=e191] [cursor=pointer]:
+                    - /url: http://sourceforge.net/projects/phlickr/
+              - text: Python
+              - list [ref=e192]:
+                - listitem [ref=e193]:
+                  - link "Beej's Python Flickr API" [ref=e194] [cursor=pointer]:
+                    - /url: http://stuvel.eu/flickrapi
+                - listitem [ref=e195]:
+                  - link "flickr.py" [ref=e196] [cursor=pointer]:
+                    - /url: http://code.google.com/p/flickrpy/
+                - listitem [ref=e197]:
+                  - link "python-flickr-api" [ref=e198] [cursor=pointer]:
+                    - /url: http://code.google.com/p/python-flickr-api/
+              - text: REALbasic
+              - list [ref=e199]:
+                - listitem [ref=e200]:
+                  - link "REALflickr" [ref=e201] [cursor=pointer]:
+                    - /url: /groups/realbasic/
+              - text: Ruby
+              - list [ref=e202]:
+                - listitem [ref=e203]:
+                  - link "flickraw" [ref=e204] [cursor=pointer]:
+                    - /url: http://hanklords.github.com/flickraw/
+                - listitem [ref=e205]:
+                  - link "flickr.rb" [ref=e206] [cursor=pointer]:
+                    - /url: http://rubygems.org/gems/flickr.rb
+                - listitem [ref=e207]:
+                  - link "rflickr" [ref=e208] [cursor=pointer]:
+                    - /url: http://rubyforge.org/projects/rflickr/
+          - cell [ref=e209]:
+            - heading "API Methods" [level=2] [ref=e210]
+            - heading "activity" [level=3] [ref=e211]
+            - list [ref=e212]:
+              - listitem [ref=e213]:
+                - link "flickr.activity.userComments" [ref=e215] [cursor=pointer]:
+                  - /url: /services/api/flickr.activity.userComments.html
+              - listitem [ref=e216]:
+                - link "flickr.activity.userPhotos" [ref=e218] [cursor=pointer]:
+                  - /url: /services/api/flickr.activity.userPhotos.html
+            - heading "auth" [level=3] [ref=e219]
+            - list [ref=e220]:
+              - listitem [ref=e221]:
+                - link "flickr.auth.checkToken" [ref=e223] [cursor=pointer]:
+                  - /url: /services/api/flickr.auth.checkToken.html
+              - listitem [ref=e224]:
+                - link "flickr.auth.getFrob" [ref=e226] [cursor=pointer]:
+                  - /url: /services/api/flickr.auth.getFrob.html
+              - listitem [ref=e227]:
+                - link "flickr.auth.getFullToken" [ref=e229] [cursor=pointer]:
+                  - /url: /services/api/flickr.auth.getFullToken.html
+              - listitem [ref=e230]:
+                - link "flickr.auth.getToken" [ref=e232] [cursor=pointer]:
+                  - /url: /services/api/flickr.auth.getToken.html
+            - heading "auth.oauth" [level=3] [ref=e233]
+            - list [ref=e234]:
+              - listitem [ref=e235]:
+                - link "flickr.auth.oauth.checkToken" [ref=e237] [cursor=pointer]:
+                  - /url: /services/api/flickr.auth.oauth.checkToken.html
+              - listitem [ref=e238]:
+                - link "flickr.auth.oauth.getAccessToken" [ref=e240] [cursor=pointer]:
+                  - /url: /services/api/flickr.auth.oauth.getAccessToken.html
+            - heading "blogs" [level=3] [ref=e241]
+            - list [ref=e242]:
+              - listitem [ref=e243]:
+                - link "flickr.blogs.getList" [ref=e245] [cursor=pointer]:
+                  - /url: /services/api/flickr.blogs.getList.html
+              - listitem [ref=e246]:
+                - link "flickr.blogs.getServices" [ref=e248] [cursor=pointer]:
+                  - /url: /services/api/flickr.blogs.getServices.html
+              - listitem [ref=e249]:
+                - link "flickr.blogs.postPhoto" [ref=e251] [cursor=pointer]:
+                  - /url: /services/api/flickr.blogs.postPhoto.html
+            - heading "cameras" [level=3] [ref=e252]
+            - list [ref=e253]:
+              - listitem [ref=e254]:
+                - link "flickr.cameras.getBrandModels" [ref=e256] [cursor=pointer]:
+                  - /url: /services/api/flickr.cameras.getBrandModels.html
+              - listitem [ref=e257]:
+                - link "flickr.cameras.getBrands" [ref=e259] [cursor=pointer]:
+                  - /url: /services/api/flickr.cameras.getBrands.html
+            - heading "collections" [level=3] [ref=e260]
+            - list [ref=e261]:
+              - listitem [ref=e262]:
+                - link "flickr.collections.getInfo" [ref=e264] [cursor=pointer]:
+                  - /url: /services/api/flickr.collections.getInfo.html
+              - listitem [ref=e265]:
+                - link "flickr.collections.getTree" [ref=e267] [cursor=pointer]:
+                  - /url: /services/api/flickr.collections.getTree.html
+            - heading "commons" [level=3] [ref=e268]
+            - list [ref=e269]:
+              - listitem [ref=e270]:
+                - link "flickr.commons.getInstitutions" [ref=e272] [cursor=pointer]:
+                  - /url: /services/api/flickr.commons.getInstitutions.html
+            - heading "contacts" [level=3] [ref=e273]
+            - list [ref=e274]:
+              - listitem [ref=e275]:
+                - link "flickr.contacts.getList" [ref=e277] [cursor=pointer]:
+                  - /url: /services/api/flickr.contacts.getList.html
+              - listitem [ref=e278]:
+                - link "flickr.contacts.getListRecentlyUploaded" [ref=e280] [cursor=pointer]:
+                  - /url: /services/api/flickr.contacts.getListRecentlyUploaded.html
+              - listitem [ref=e281]:
+                - link "flickr.contacts.getPublicList" [ref=e283] [cursor=pointer]:
+                  - /url: /services/api/flickr.contacts.getPublicList.html
+              - listitem [ref=e284]:
+                - link "flickr.contacts.getTaggingSuggestions" [ref=e286] [cursor=pointer]:
+                  - /url: /services/api/flickr.contacts.getTaggingSuggestions.html
+            - heading "favorites" [level=3] [ref=e287]
+            - list [ref=e288]:
+              - listitem [ref=e289]:
+                - link "flickr.favorites.add" [ref=e291] [cursor=pointer]:
+                  - /url: /services/api/flickr.favorites.add.html
+              - listitem [ref=e292]:
+                - link "flickr.favorites.getContext" [ref=e294] [cursor=pointer]:
+                  - /url: /services/api/flickr.favorites.getContext.html
+              - listitem [ref=e295]:
+                - link "flickr.favorites.getList" [ref=e297] [cursor=pointer]:
+                  - /url: /services/api/flickr.favorites.getList.html
+              - listitem [ref=e298]:
+                - link "flickr.favorites.getPublicList" [ref=e300] [cursor=pointer]:
+                  - /url: /services/api/flickr.favorites.getPublicList.html
+              - listitem [ref=e301]:
+                - link "flickr.favorites.remove" [ref=e303] [cursor=pointer]:
+                  - /url: /services/api/flickr.favorites.remove.html
+            - heading "galleries" [level=3] [ref=e304]
+            - list [ref=e305]:
+              - listitem [ref=e306]:
+                - link "flickr.galleries.addPhoto" [ref=e308] [cursor=pointer]:
+                  - /url: /services/api/flickr.galleries.addPhoto.html
+              - listitem [ref=e309]:
+                - link "flickr.galleries.create" [ref=e311] [cursor=pointer]:
+                  - /url: /services/api/flickr.galleries.create.html
+              - listitem [ref=e312]:
+                - link "flickr.galleries.editMeta" [ref=e314] [cursor=pointer]:
+                  - /url: /services/api/flickr.galleries.editMeta.html
+              - listitem [ref=e315]:
+                - link "flickr.galleries.editPhoto" [ref=e317] [cursor=pointer]:
+                  - /url: /services/api/flickr.galleries.editPhoto.html
+              - listitem [ref=e318]:
+                - link "flickr.galleries.editPhotos" [ref=e320] [cursor=pointer]:
+                  - /url: /services/api/flickr.galleries.editPhotos.html
+              - listitem [ref=e321]:
+                - link "flickr.galleries.getInfo" [ref=e323] [cursor=pointer]:
+                  - /url: /services/api/flickr.galleries.getInfo.html
+              - listitem [ref=e324]:
+                - link "flickr.galleries.getList" [ref=e326] [cursor=pointer]:
+                  - /url: /services/api/flickr.galleries.getList.html
+              - listitem [ref=e327]:
+                - link "flickr.galleries.getListForPhoto" [ref=e329] [cursor=pointer]:
+                  - /url: /services/api/flickr.galleries.getListForPhoto.html
+              - listitem [ref=e330]:
+                - link "flickr.galleries.getPhotos" [ref=e332] [cursor=pointer]:
+                  - /url: /services/api/flickr.galleries.getPhotos.html
+              - listitem [ref=e333]:
+                - link "flickr.galleries.removePhoto" [ref=e335] [cursor=pointer]:
+                  - /url: /services/api/flickr.galleries.removePhoto.html
+            - heading "groups.discuss.replies" [level=3] [ref=e336]
+            - list [ref=e337]:
+              - listitem [ref=e338]:
+                - link "flickr.groups.discuss.replies.add" [ref=e340] [cursor=pointer]:
+                  - /url: /services/api/flickr.groups.discuss.replies.add.html
+              - listitem [ref=e341]:
+                - link "flickr.groups.discuss.replies.delete" [ref=e343] [cursor=pointer]:
+                  - /url: /services/api/flickr.groups.discuss.replies.delete.html
+              - listitem [ref=e344]:
+                - link "flickr.groups.discuss.replies.edit" [ref=e346] [cursor=pointer]:
+                  - /url: /services/api/flickr.groups.discuss.replies.edit.html
+              - listitem [ref=e347]:
+                - link "flickr.groups.discuss.replies.getInfo" [ref=e349] [cursor=pointer]:
+                  - /url: /services/api/flickr.groups.discuss.replies.getInfo.html
+              - listitem [ref=e350]:
+                - link "flickr.groups.discuss.replies.getList" [ref=e352] [cursor=pointer]:
+                  - /url: /services/api/flickr.groups.discuss.replies.getList.html
+            - heading "groups.discuss.topics" [level=3] [ref=e353]
+            - list [ref=e354]:
+              - listitem [ref=e355]:
+                - link "flickr.groups.discuss.topics.add" [ref=e357] [cursor=pointer]:
+                  - /url: /services/api/flickr.groups.discuss.topics.add.html
+              - listitem [ref=e358]:
+                - link "flickr.groups.discuss.topics.getInfo" [ref=e360] [cursor=pointer]:
+                  - /url: /services/api/flickr.groups.discuss.topics.getInfo.html
+              - listitem [ref=e361]:
+                - link "flickr.groups.discuss.topics.getList" [ref=e363] [cursor=pointer]:
+                  - /url: /services/api/flickr.groups.discuss.topics.getList.html
+            - heading "groups" [level=3] [ref=e364]
+            - list [ref=e365]:
+              - listitem [ref=e366]:
+                - link "flickr.groups.getInfo" [ref=e368] [cursor=pointer]:
+                  - /url: /services/api/flickr.groups.getInfo.html
+              - listitem [ref=e369]:
+                - link "flickr.groups.join" [ref=e371] [cursor=pointer]:
+                  - /url: /services/api/flickr.groups.join.html
+              - listitem [ref=e372]:
+                - link "flickr.groups.joinRequest" [ref=e374] [cursor=pointer]:
+                  - /url: /services/api/flickr.groups.joinRequest.html
+              - listitem [ref=e375]:
+                - link "flickr.groups.leave" [ref=e377] [cursor=pointer]:
+                  - /url: /services/api/flickr.groups.leave.html
+              - listitem [ref=e378]:
+                - link "flickr.groups.search" [ref=e380] [cursor=pointer]:
+                  - /url: /services/api/flickr.groups.search.html
+            - heading "groups.members" [level=3] [ref=e381]
+            - list [ref=e382]:
+              - listitem [ref=e383]:
+                - link "flickr.groups.members.getList" [ref=e385] [cursor=pointer]:
+                  - /url: /services/api/flickr.groups.members.getList.html
+            - heading "groups.pools" [level=3] [ref=e386]
+            - list [ref=e387]:
+              - listitem [ref=e388]:
+                - link "flickr.groups.pools.add" [ref=e390] [cursor=pointer]:
+                  - /url: /services/api/flickr.groups.pools.add.html
+              - listitem [ref=e391]:
+                - link "flickr.groups.pools.getContext" [ref=e393] [cursor=pointer]:
+                  - /url: /services/api/flickr.groups.pools.getContext.html
+              - listitem [ref=e394]:
+                - link "flickr.groups.pools.getGroups" [ref=e396] [cursor=pointer]:
+                  - /url: /services/api/flickr.groups.pools.getGroups.html
+              - listitem [ref=e397]:
+                - link "flickr.groups.pools.getPhotos" [ref=e399] [cursor=pointer]:
+                  - /url: /services/api/flickr.groups.pools.getPhotos.html
+              - listitem [ref=e400]:
+                - link "flickr.groups.pools.remove" [ref=e402] [cursor=pointer]:
+                  - /url: /services/api/flickr.groups.pools.remove.html
+            - heading "interestingness" [level=3] [ref=e403]
+            - list [ref=e404]:
+              - listitem [ref=e405]:
+                - link "flickr.interestingness.getList" [ref=e407] [cursor=pointer]:
+                  - /url: /services/api/flickr.interestingness.getList.html
+            - heading "machinetags" [level=3] [ref=e408]
+            - list [ref=e409]:
+              - listitem [ref=e410]:
+                - link "flickr.machinetags.getNamespaces" [ref=e412] [cursor=pointer]:
+                  - /url: /services/api/flickr.machinetags.getNamespaces.html
+              - listitem [ref=e413]:
+                - link "flickr.machinetags.getPairs" [ref=e415] [cursor=pointer]:
+                  - /url: /services/api/flickr.machinetags.getPairs.html
+              - listitem [ref=e416]:
+                - link "flickr.machinetags.getPredicates" [ref=e418] [cursor=pointer]:
+                  - /url: /services/api/flickr.machinetags.getPredicates.html
+              - listitem [ref=e419]:
+                - link "flickr.machinetags.getRecentValues" [ref=e421] [cursor=pointer]:
+                  - /url: /services/api/flickr.machinetags.getRecentValues.html
+              - listitem [ref=e422]:
+                - link "flickr.machinetags.getValues" [ref=e424] [cursor=pointer]:
+                  - /url: /services/api/flickr.machinetags.getValues.html
+            - heading "panda" [level=3] [ref=e425]
+            - list [ref=e426]:
+              - listitem [ref=e427]:
+                - link "flickr.panda.getList" [ref=e429] [cursor=pointer]:
+                  - /url: /services/api/flickr.panda.getList.html
+              - listitem [ref=e430]:
+                - link "flickr.panda.getPhotos" [ref=e432] [cursor=pointer]:
+                  - /url: /services/api/flickr.panda.getPhotos.html
+            - heading "people" [level=3] [ref=e433]
+            - list [ref=e434]:
+              - listitem [ref=e435]:
+                - link "flickr.people.findByEmail" [ref=e437] [cursor=pointer]:
+                  - /url: /services/api/flickr.people.findByEmail.html
+              - listitem [ref=e438]:
+                - link "flickr.people.findByUsername" [ref=e440] [cursor=pointer]:
+                  - /url: /services/api/flickr.people.findByUsername.html
+              - listitem [ref=e441]:
+                - link "flickr.people.getGroups" [ref=e443] [cursor=pointer]:
+                  - /url: /services/api/flickr.people.getGroups.html
+              - listitem [ref=e444]:
+                - link "flickr.people.getInfo" [ref=e446] [cursor=pointer]:
+                  - /url: /services/api/flickr.people.getInfo.html
+              - listitem [ref=e447]:
+                - link "flickr.people.getLimits" [ref=e449] [cursor=pointer]:
+                  - /url: /services/api/flickr.people.getLimits.html
+              - listitem [ref=e450]:
+                - link "flickr.people.getPhotos" [ref=e452] [cursor=pointer]:
+                  - /url: /services/api/flickr.people.getPhotos.html
+              - listitem [ref=e453]:
+                - link "flickr.people.getPhotosOf" [ref=e455] [cursor=pointer]:
+                  - /url: /services/api/flickr.people.getPhotosOf.html
+              - listitem [ref=e456]:
+                - link "flickr.people.getPublicGroups" [ref=e458] [cursor=pointer]:
+                  - /url: /services/api/flickr.people.getPublicGroups.html
+              - listitem [ref=e459]:
+                - link "flickr.people.getPublicPhotos" [ref=e461] [cursor=pointer]:
+                  - /url: /services/api/flickr.people.getPublicPhotos.html
+              - listitem [ref=e462]:
+                - link "flickr.people.getUploadStatus" [ref=e464] [cursor=pointer]:
+                  - /url: /services/api/flickr.people.getUploadStatus.html
+            - heading "photos" [level=3] [ref=e465]
+            - list [ref=e466]:
+              - listitem [ref=e467]:
+                - link "flickr.photos.addTags" [ref=e469] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.addTags.html
+              - listitem [ref=e470]:
+                - link "flickr.photos.delete" [ref=e472] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.delete.html
+              - listitem [ref=e473]:
+                - link "flickr.photos.getAllContexts" [ref=e475] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.getAllContexts.html
+              - listitem [ref=e476]:
+                - link "flickr.photos.getContactsPhotos" [ref=e478] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.getContactsPhotos.html
+              - listitem [ref=e479]:
+                - link "flickr.photos.getContactsPublicPhotos" [ref=e481] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.getContactsPublicPhotos.html
+              - listitem [ref=e482]:
+                - link "flickr.photos.getContext" [ref=e484] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.getContext.html
+              - listitem [ref=e485]:
+                - link "flickr.photos.getCounts" [ref=e487] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.getCounts.html
+              - listitem [ref=e488]:
+                - link "flickr.photos.getExif" [ref=e490] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.getExif.html
+              - listitem [ref=e491]:
+                - link "flickr.photos.getFavorites" [ref=e493] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.getFavorites.html
+              - listitem [ref=e494]:
+                - link "flickr.photos.getInfo" [ref=e496] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.getInfo.html
+              - listitem [ref=e497]:
+                - link "flickr.photos.getNotInSet" [ref=e499] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.getNotInSet.html
+              - listitem [ref=e500]:
+                - link "flickr.photos.getPerms" [ref=e502] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.getPerms.html
+              - listitem [ref=e503]:
+                - link "flickr.photos.getPopular" [ref=e505] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.getPopular.html
+              - listitem [ref=e506]:
+                - link "flickr.photos.getRecent" [ref=e508] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.getRecent.html
+              - listitem [ref=e509]:
+                - link "flickr.photos.getSizes" [ref=e511] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.getSizes.html
+              - listitem [ref=e512]:
+                - link "flickr.photos.getUntagged" [ref=e514] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.getUntagged.html
+              - listitem [ref=e515]:
+                - link "flickr.photos.getWithGeoData" [ref=e517] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.getWithGeoData.html
+              - listitem [ref=e518]:
+                - link "flickr.photos.getWithoutGeoData" [ref=e520] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.getWithoutGeoData.html
+              - listitem [ref=e521]:
+                - link "flickr.photos.recentlyUpdated" [ref=e523] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.recentlyUpdated.html
+              - listitem [ref=e524]:
+                - link "flickr.photos.removeTag" [ref=e526] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.removeTag.html
+              - listitem [ref=e527]:
+                - link "flickr.photos.search" [ref=e529] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.search.html
+              - listitem [ref=e530]:
+                - link "flickr.photos.setContentType" [ref=e532] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.setContentType.html
+              - listitem [ref=e533]:
+                - link "flickr.photos.setDates" [ref=e535] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.setDates.html
+              - listitem [ref=e536]:
+                - link "flickr.photos.setMeta" [ref=e538] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.setMeta.html
+              - listitem [ref=e539]:
+                - link "flickr.photos.setPerms" [ref=e541] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.setPerms.html
+              - listitem [ref=e542]:
+                - link "flickr.photos.setSafetyLevel" [ref=e544] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.setSafetyLevel.html
+              - listitem [ref=e545]:
+                - link "flickr.photos.setTags" [ref=e547] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.setTags.html
+            - heading "photos.comments" [level=3] [ref=e548]
+            - list [ref=e549]:
+              - listitem [ref=e550]:
+                - link "flickr.photos.comments.addComment" [ref=e552] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.comments.addComment.html
+              - listitem [ref=e553]:
+                - link "flickr.photos.comments.deleteComment" [ref=e555] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.comments.deleteComment.html
+              - listitem [ref=e556]:
+                - link "flickr.photos.comments.editComment" [ref=e558] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.comments.editComment.html
+              - listitem [ref=e559]:
+                - link "flickr.photos.comments.getList" [ref=e561] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.comments.getList.html
+              - listitem [ref=e562]:
+                - link "flickr.photos.comments.getRecentForContacts" [ref=e564] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.comments.getRecentForContacts.html
+            - heading "photos.geo" [level=3] [ref=e565]
+            - list [ref=e566]:
+              - listitem [ref=e567]:
+                - link "flickr.photos.geo.batchCorrectLocation" [ref=e569] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.geo.batchCorrectLocation.html
+              - listitem [ref=e570]:
+                - link "flickr.photos.geo.correctLocation" [ref=e572] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.geo.correctLocation.html
+              - listitem [ref=e573]:
+                - link "flickr.photos.geo.getLocation" [ref=e575] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.geo.getLocation.html
+              - listitem [ref=e576]:
+                - link "flickr.photos.geo.getPerms" [ref=e578] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.geo.getPerms.html
+              - listitem [ref=e579]:
+                - link "flickr.photos.geo.photosForLocation" [ref=e581] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.geo.photosForLocation.html
+              - listitem [ref=e582]:
+                - link "flickr.photos.geo.removeLocation" [ref=e584] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.geo.removeLocation.html
+              - listitem [ref=e585]:
+                - link "flickr.photos.geo.setContext" [ref=e587] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.geo.setContext.html
+              - listitem [ref=e588]:
+                - link "flickr.photos.geo.setLocation" [ref=e590] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.geo.setLocation.html
+              - listitem [ref=e591]:
+                - link "flickr.photos.geo.setPerms" [ref=e593] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.geo.setPerms.html
+            - heading "photos.licenses" [level=3] [ref=e594]
+            - list [ref=e595]:
+              - listitem [ref=e596]:
+                - link "flickr.photos.licenses.getInfo" [ref=e598] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.licenses.getInfo.html
+              - listitem [ref=e599]:
+                - link "flickr.photos.licenses.setLicense" [ref=e601] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.licenses.setLicense.html
+              - listitem [ref=e602]:
+                - link "flickr.photos.licenses.getLicenseHistory" [ref=e604] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.licenses.getLicenseHistory.html
+              - listitem [ref=e605]:
+                - link "flickr.photos.licenses.getAvailable" [ref=e607] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.licenses.getAvailable.html
+            - heading "photos.notes" [level=3] [ref=e608]
+            - list [ref=e609]:
+              - listitem [ref=e610]:
+                - link "flickr.photos.notes.add" [ref=e612] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.notes.add.html
+              - listitem [ref=e613]:
+                - link "flickr.photos.notes.delete" [ref=e615] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.notes.delete.html
+              - listitem [ref=e616]:
+                - link "flickr.photos.notes.edit" [ref=e618] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.notes.edit.html
+            - heading "photos.people" [level=3] [ref=e619]
+            - list [ref=e620]:
+              - listitem [ref=e621]:
+                - link "flickr.photos.people.add" [ref=e623] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.people.add.html
+              - listitem [ref=e624]:
+                - link "flickr.photos.people.delete" [ref=e626] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.people.delete.html
+              - listitem [ref=e627]:
+                - link "flickr.photos.people.deleteCoords" [ref=e629] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.people.deleteCoords.html
+              - listitem [ref=e630]:
+                - link "flickr.photos.people.editCoords" [ref=e632] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.people.editCoords.html
+              - listitem [ref=e633]:
+                - link "flickr.photos.people.getList" [ref=e635] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.people.getList.html
+            - heading "photos.suggestions" [level=3] [ref=e636]
+            - list [ref=e637]:
+              - listitem [ref=e638]:
+                - link "flickr.photos.suggestions.approveSuggestion" [ref=e640] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.suggestions.approveSuggestion.html
+              - listitem [ref=e641]:
+                - link "flickr.photos.suggestions.getList" [ref=e643] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.suggestions.getList.html
+              - listitem [ref=e644]:
+                - link "flickr.photos.suggestions.rejectSuggestion" [ref=e646] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.suggestions.rejectSuggestion.html
+              - listitem [ref=e647]:
+                - link "flickr.photos.suggestions.removeSuggestion" [ref=e649] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.suggestions.removeSuggestion.html
+              - listitem [ref=e650]:
+                - link "flickr.photos.suggestions.suggestLocation" [ref=e652] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.suggestions.suggestLocation.html
+            - heading "photos.transform" [level=3] [ref=e653]
+            - list [ref=e654]:
+              - listitem [ref=e655]:
+                - link "flickr.photos.transform.rotate" [ref=e657] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.transform.rotate.html
+            - heading "photos.upload" [level=3] [ref=e658]
+            - list [ref=e659]:
+              - listitem [ref=e660]:
+                - link "flickr.photos.upload.checkTickets" [ref=e662] [cursor=pointer]:
+                  - /url: /services/api/flickr.photos.upload.checkTickets.html
+            - heading "photosets" [level=3] [ref=e663]
+            - list [ref=e664]:
+              - listitem [ref=e665]:
+                - link "flickr.photosets.addPhoto" [ref=e667] [cursor=pointer]:
+                  - /url: /services/api/flickr.photosets.addPhoto.html
+              - listitem [ref=e668]:
+                - link "flickr.photosets.create" [ref=e670] [cursor=pointer]:
+                  - /url: /services/api/flickr.photosets.create.html
+              - listitem [ref=e671]:
+                - link "flickr.photosets.delete" [ref=e673] [cursor=pointer]:
+                  - /url: /services/api/flickr.photosets.delete.html
+              - listitem [ref=e674]:
+                - link "flickr.photosets.editMeta" [ref=e676] [cursor=pointer]:
+                  - /url: /services/api/flickr.photosets.editMeta.html
+              - listitem [ref=e677]:
+                - link "flickr.photosets.editPhotos" [ref=e679] [cursor=pointer]:
+                  - /url: /services/api/flickr.photosets.editPhotos.html
+              - listitem [ref=e680]:
+                - link "flickr.photosets.getContext" [ref=e682] [cursor=pointer]:
+                  - /url: /services/api/flickr.photosets.getContext.html
+              - listitem [ref=e683]:
+                - link "flickr.photosets.getInfo" [ref=e685] [cursor=pointer]:
+                  - /url: /services/api/flickr.photosets.getInfo.html
+              - listitem [ref=e686]:
+                - link "flickr.photosets.getList" [ref=e688] [cursor=pointer]:
+                  - /url: /services/api/flickr.photosets.getList.html
+              - listitem [ref=e689]:
+                - link "flickr.photosets.getPhotos" [ref=e691] [cursor=pointer]:
+                  - /url: /services/api/flickr.photosets.getPhotos.html
+              - listitem [ref=e692]:
+                - link "flickr.photosets.orderSets" [ref=e694] [cursor=pointer]:
+                  - /url: /services/api/flickr.photosets.orderSets.html
+              - listitem [ref=e695]:
+                - link "flickr.photosets.removePhoto" [ref=e697] [cursor=pointer]:
+                  - /url: /services/api/flickr.photosets.removePhoto.html
+              - listitem [ref=e698]:
+                - link "flickr.photosets.removePhotos" [ref=e700] [cursor=pointer]:
+                  - /url: /services/api/flickr.photosets.removePhotos.html
+              - listitem [ref=e701]:
+                - link "flickr.photosets.reorderPhotos" [ref=e703] [cursor=pointer]:
+                  - /url: /services/api/flickr.photosets.reorderPhotos.html
+              - listitem [ref=e704]:
+                - link "flickr.photosets.setPrimaryPhoto" [ref=e706] [cursor=pointer]:
+                  - /url: /services/api/flickr.photosets.setPrimaryPhoto.html
+            - heading "photosets.comments" [level=3] [ref=e707]
+            - list [ref=e708]:
+              - listitem [ref=e709]:
+                - link "flickr.photosets.comments.addComment" [ref=e711] [cursor=pointer]:
+                  - /url: /services/api/flickr.photosets.comments.addComment.html
+              - listitem [ref=e712]:
+                - link "flickr.photosets.comments.deleteComment" [ref=e714] [cursor=pointer]:
+                  - /url: /services/api/flickr.photosets.comments.deleteComment.html
+              - listitem [ref=e715]:
+                - link "flickr.photosets.comments.editComment" [ref=e717] [cursor=pointer]:
+                  - /url: /services/api/flickr.photosets.comments.editComment.html
+              - listitem [ref=e718]:
+                - link "flickr.photosets.comments.getList" [ref=e720] [cursor=pointer]:
+                  - /url: /services/api/flickr.photosets.comments.getList.html
+            - heading "places" [level=3] [ref=e721]
+            - list [ref=e722]:
+              - listitem [ref=e723]:
+                - link "flickr.places.find" [ref=e725] [cursor=pointer]:
+                  - /url: /services/api/flickr.places.find.html
+              - listitem [ref=e726]:
+                - link "flickr.places.findByLatLon" [ref=e728] [cursor=pointer]:
+                  - /url: /services/api/flickr.places.findByLatLon.html
+              - listitem [ref=e729]:
+                - link "flickr.places.getChildrenWithPhotosPublic" [ref=e731] [cursor=pointer]:
+                  - /url: /services/api/flickr.places.getChildrenWithPhotosPublic.html
+              - listitem [ref=e732]:
+                - link "flickr.places.getInfo" [ref=e734] [cursor=pointer]:
+                  - /url: /services/api/flickr.places.getInfo.html
+              - listitem [ref=e735]:
+                - link "flickr.places.getInfoByUrl" [ref=e737] [cursor=pointer]:
+                  - /url: /services/api/flickr.places.getInfoByUrl.html
+              - listitem [ref=e738]:
+                - link "flickr.places.getPlaceTypes" [ref=e740] [cursor=pointer]:
+                  - /url: /services/api/flickr.places.getPlaceTypes.html
+              - listitem [ref=e741]:
+                - link "flickr.places.getShapeHistory" [ref=e743] [cursor=pointer]:
+                  - /url: /services/api/flickr.places.getShapeHistory.html
+              - listitem [ref=e744]:
+                - link "flickr.places.getTopPlacesList" [ref=e746] [cursor=pointer]:
+                  - /url: /services/api/flickr.places.getTopPlacesList.html
+              - listitem [ref=e747]:
+                - link "flickr.places.placesForBoundingBox" [ref=e749] [cursor=pointer]:
+                  - /url: /services/api/flickr.places.placesForBoundingBox.html
+              - listitem [ref=e750]:
+                - link "flickr.places.placesForContacts" [ref=e752] [cursor=pointer]:
+                  - /url: /services/api/flickr.places.placesForContacts.html
+              - listitem [ref=e753]:
+                - link "flickr.places.placesForTags" [ref=e755] [cursor=pointer]:
+                  - /url: /services/api/flickr.places.placesForTags.html
+              - listitem [ref=e756]:
+                - link "flickr.places.placesForUser" [ref=e758] [cursor=pointer]:
+                  - /url: /services/api/flickr.places.placesForUser.html
+              - listitem [ref=e759]:
+                - link "flickr.places.resolvePlaceId" [ref=e761] [cursor=pointer]:
+                  - /url: /services/api/flickr.places.resolvePlaceId.html
+              - listitem [ref=e762]:
+                - link "flickr.places.resolvePlaceURL" [ref=e764] [cursor=pointer]:
+                  - /url: /services/api/flickr.places.resolvePlaceURL.html
+              - listitem [ref=e765]:
+                - link "flickr.places.tagsForPlace" [ref=e767] [cursor=pointer]:
+                  - /url: /services/api/flickr.places.tagsForPlace.html
+            - heading "prefs" [level=3] [ref=e768]
+            - list [ref=e769]:
+              - listitem [ref=e770]:
+                - link "flickr.prefs.getContentType" [ref=e772] [cursor=pointer]:
+                  - /url: /services/api/flickr.prefs.getContentType.html
+              - listitem [ref=e773]:
+                - link "flickr.prefs.getGeoPerms" [ref=e775] [cursor=pointer]:
+                  - /url: /services/api/flickr.prefs.getGeoPerms.html
+              - listitem [ref=e776]:
+                - link "flickr.prefs.getHidden" [ref=e778] [cursor=pointer]:
+                  - /url: /services/api/flickr.prefs.getHidden.html
+              - listitem [ref=e779]:
+                - link "flickr.prefs.getPrivacy" [ref=e781] [cursor=pointer]:
+                  - /url: /services/api/flickr.prefs.getPrivacy.html
+              - listitem [ref=e782]:
+                - link "flickr.prefs.getSafetyLevel" [ref=e784] [cursor=pointer]:
+                  - /url: /services/api/flickr.prefs.getSafetyLevel.html
+            - heading "profile" [level=3] [ref=e785]
+            - list [ref=e786]:
+              - listitem [ref=e787]:
+                - link "flickr.profile.getProfile" [ref=e789] [cursor=pointer]:
+                  - /url: /services/api/flickr.profile.getProfile.html
+            - heading "push" [level=3] [ref=e790]
+            - list [ref=e791]:
+              - listitem [ref=e792]:
+                - link "flickr.push.getSubscriptions" [ref=e794] [cursor=pointer]:
+                  - /url: /services/api/flickr.push.getSubscriptions.html
+              - listitem [ref=e795]:
+                - link "flickr.push.getTopics" [ref=e797] [cursor=pointer]:
+                  - /url: /services/api/flickr.push.getTopics.html
+              - listitem [ref=e798]:
+                - link "flickr.push.subscribe" [ref=e800] [cursor=pointer]:
+                  - /url: /services/api/flickr.push.subscribe.html
+              - listitem [ref=e801]:
+                - link "flickr.push.unsubscribe" [ref=e803] [cursor=pointer]:
+                  - /url: /services/api/flickr.push.unsubscribe.html
+            - heading "reflection" [level=3] [ref=e804]
+            - list [ref=e805]:
+              - listitem [ref=e806]:
+                - link "flickr.reflection.getMethodInfo" [ref=e808] [cursor=pointer]:
+                  - /url: /services/api/flickr.reflection.getMethodInfo.html
+              - listitem [ref=e809]:
+                - link "flickr.reflection.getMethods" [ref=e811] [cursor=pointer]:
+                  - /url: /services/api/flickr.reflection.getMethods.html
+            - heading "stats" [level=3] [ref=e812]
+            - list [ref=e813]:
+              - listitem [ref=e814]:
+                - link "flickr.stats.getCollectionDomains" [ref=e816] [cursor=pointer]:
+                  - /url: /services/api/flickr.stats.getCollectionDomains.html
+              - listitem [ref=e817]:
+                - link "flickr.stats.getCollectionReferrers" [ref=e819] [cursor=pointer]:
+                  - /url: /services/api/flickr.stats.getCollectionReferrers.html
+              - listitem [ref=e820]:
+                - link "flickr.stats.getCollectionStats" [ref=e822] [cursor=pointer]:
+                  - /url: /services/api/flickr.stats.getCollectionStats.html
+              - listitem [ref=e823]:
+                - link "flickr.stats.getCSVFiles" [ref=e825] [cursor=pointer]:
+                  - /url: /services/api/flickr.stats.getCSVFiles.html
+              - listitem [ref=e826]:
+                - link "flickr.stats.getMostPopularPhotoDateRange" [ref=e828] [cursor=pointer]:
+                  - /url: /services/api/flickr.stats.getMostPopularPhotoDateRange.html
+              - listitem [ref=e829]:
+                - link "flickr.stats.getPhotoDomains" [ref=e831] [cursor=pointer]:
+                  - /url: /services/api/flickr.stats.getPhotoDomains.html
+              - listitem [ref=e832]:
+                - link "flickr.stats.getPhotoReferrers" [ref=e834] [cursor=pointer]:
+                  - /url: /services/api/flickr.stats.getPhotoReferrers.html
+              - listitem [ref=e835]:
+                - link "flickr.stats.getPhotosetDomains" [ref=e837] [cursor=pointer]:
+                  - /url: /services/api/flickr.stats.getPhotosetDomains.html
+              - listitem [ref=e838]:
+                - link "flickr.stats.getPhotosetReferrers" [ref=e840] [cursor=pointer]:
+                  - /url: /services/api/flickr.stats.getPhotosetReferrers.html
+              - listitem [ref=e841]:
+                - link "flickr.stats.getPhotosetStats" [ref=e843] [cursor=pointer]:
+                  - /url: /services/api/flickr.stats.getPhotosetStats.html
+              - listitem [ref=e844]:
+                - link "flickr.stats.getPhotoStats" [ref=e846] [cursor=pointer]:
+                  - /url: /services/api/flickr.stats.getPhotoStats.html
+              - listitem [ref=e847]:
+                - link "flickr.stats.getPhotostreamDomains" [ref=e849] [cursor=pointer]:
+                  - /url: /services/api/flickr.stats.getPhotostreamDomains.html
+              - listitem [ref=e850]:
+                - link "flickr.stats.getPhotostreamReferrers" [ref=e852] [cursor=pointer]:
+                  - /url: /services/api/flickr.stats.getPhotostreamReferrers.html
+              - listitem [ref=e853]:
+                - link "flickr.stats.getPhotostreamStats" [ref=e855] [cursor=pointer]:
+                  - /url: /services/api/flickr.stats.getPhotostreamStats.html
+              - listitem [ref=e856]:
+                - link "flickr.stats.getPopularPhotos" [ref=e858] [cursor=pointer]:
+                  - /url: /services/api/flickr.stats.getPopularPhotos.html
+              - listitem [ref=e859]:
+                - link "flickr.stats.getTotalViews" [ref=e861] [cursor=pointer]:
+                  - /url: /services/api/flickr.stats.getTotalViews.html
+            - heading "tags" [level=3] [ref=e862]
+            - list [ref=e863]:
+              - listitem [ref=e864]:
+                - link "flickr.tags.getClusterPhotos" [ref=e866] [cursor=pointer]:
+                  - /url: /services/api/flickr.tags.getClusterPhotos.html
+              - listitem [ref=e867]:
+                - link "flickr.tags.getClusters" [ref=e869] [cursor=pointer]:
+                  - /url: /services/api/flickr.tags.getClusters.html
+              - listitem [ref=e870]:
+                - link "flickr.tags.getHotList" [ref=e872] [cursor=pointer]:
+                  - /url: /services/api/flickr.tags.getHotList.html
+              - listitem [ref=e873]:
+                - link "flickr.tags.getListPhoto" [ref=e875] [cursor=pointer]:
+                  - /url: /services/api/flickr.tags.getListPhoto.html
+              - listitem [ref=e876]:
+                - link "flickr.tags.getListUser" [ref=e878] [cursor=pointer]:
+                  - /url: /services/api/flickr.tags.getListUser.html
+              - listitem [ref=e879]:
+                - link "flickr.tags.getListUserPopular" [ref=e881] [cursor=pointer]:
+                  - /url: /services/api/flickr.tags.getListUserPopular.html
+              - listitem [ref=e882]:
+                - link "flickr.tags.getListUserRaw" [ref=e884] [cursor=pointer]:
+                  - /url: /services/api/flickr.tags.getListUserRaw.html
+              - listitem [ref=e885]:
+                - link "flickr.tags.getMostFrequentlyUsed" [ref=e887] [cursor=pointer]:
+                  - /url: /services/api/flickr.tags.getMostFrequentlyUsed.html
+              - listitem [ref=e888]:
+                - link "flickr.tags.getRelated" [ref=e890] [cursor=pointer]:
+                  - /url: /services/api/flickr.tags.getRelated.html
+            - heading "test" [level=3] [ref=e891]
+            - list [ref=e892]:
+              - listitem [ref=e893]:
+                - link "flickr.test.echo" [ref=e895] [cursor=pointer]:
+                  - /url: /services/api/flickr.test.echo.html
+              - listitem [ref=e896]:
+                - link "flickr.test.login" [ref=e898] [cursor=pointer]:
+                  - /url: /services/api/flickr.test.login.html
+              - listitem [ref=e899]:
+                - link "flickr.test.null" [ref=e901] [cursor=pointer]:
+                  - /url: /services/api/flickr.test.null.html
+            - heading "testimonials" [level=3] [ref=e902]
+            - list [ref=e903]:
+              - listitem [ref=e904]:
+                - link "flickr.testimonials.addTestimonial" [ref=e906] [cursor=pointer]:
+                  - /url: /services/api/flickr.testimonials.addTestimonial.html
+              - listitem [ref=e907]:
+                - link "flickr.testimonials.approveTestimonial" [ref=e909] [cursor=pointer]:
+                  - /url: /services/api/flickr.testimonials.approveTestimonial.html
+              - listitem [ref=e910]:
+                - link "flickr.testimonials.deleteTestimonial" [ref=e912] [cursor=pointer]:
+                  - /url: /services/api/flickr.testimonials.deleteTestimonial.html
+              - listitem [ref=e913]:
+                - link "flickr.testimonials.editTestimonial" [ref=e915] [cursor=pointer]:
+                  - /url: /services/api/flickr.testimonials.editTestimonial.html
+              - listitem [ref=e916]:
+                - link "flickr.testimonials.getAllTestimonialsAbout" [ref=e918] [cursor=pointer]:
+                  - /url: /services/api/flickr.testimonials.getAllTestimonialsAbout.html
+              - listitem [ref=e919]:
+                - link "flickr.testimonials.getAllTestimonialsAboutBy" [ref=e921] [cursor=pointer]:
+                  - /url: /services/api/flickr.testimonials.getAllTestimonialsAboutBy.html
+              - listitem [ref=e922]:
+                - link "flickr.testimonials.getAllTestimonialsBy" [ref=e924] [cursor=pointer]:
+                  - /url: /services/api/flickr.testimonials.getAllTestimonialsBy.html
+              - listitem [ref=e925]:
+                - link "flickr.testimonials.getPendingTestimonialsAbout" [ref=e927] [cursor=pointer]:
+                  - /url: /services/api/flickr.testimonials.getPendingTestimonialsAbout.html
+              - listitem [ref=e928]:
+                - link "flickr.testimonials.getPendingTestimonialsAboutBy" [ref=e930] [cursor=pointer]:
+                  - /url: /services/api/flickr.testimonials.getPendingTestimonialsAboutBy.html
+              - listitem [ref=e931]:
+                - link "flickr.testimonials.getPendingTestimonialsBy" [ref=e933] [cursor=pointer]:
+                  - /url: /services/api/flickr.testimonials.getPendingTestimonialsBy.html
+              - listitem [ref=e934]:
+                - link "flickr.testimonials.getTestimonialsAbout" [ref=e936] [cursor=pointer]:
+                  - /url: /services/api/flickr.testimonials.getTestimonialsAbout.html
+              - listitem [ref=e937]:
+                - link "flickr.testimonials.getTestimonialsAboutBy" [ref=e939] [cursor=pointer]:
+                  - /url: /services/api/flickr.testimonials.getTestimonialsAboutBy.html
+              - listitem [ref=e940]:
+                - link "flickr.testimonials.getTestimonialsBy" [ref=e942] [cursor=pointer]:
+                  - /url: /services/api/flickr.testimonials.getTestimonialsBy.html
+            - heading "urls" [level=3] [ref=e943]
+            - list [ref=e944]:
+              - listitem [ref=e945]:
+                - link "flickr.urls.getGroup" [ref=e947] [cursor=pointer]:
+                  - /url: /services/api/flickr.urls.getGroup.html
+              - listitem [ref=e948]:
+                - link "flickr.urls.getUserPhotos" [ref=e950] [cursor=pointer]:
+                  - /url: /services/api/flickr.urls.getUserPhotos.html
+              - listitem [ref=e951]:
+                - link "flickr.urls.getUserProfile" [ref=e953] [cursor=pointer]:
+                  - /url: /services/api/flickr.urls.getUserProfile.html
+              - listitem [ref=e954]:
+                - link "flickr.urls.lookupGallery" [ref=e956] [cursor=pointer]:
+                  - /url: /services/api/flickr.urls.lookupGallery.html
+              - listitem [ref=e957]:
+                - link "flickr.urls.lookupGroup" [ref=e959] [cursor=pointer]:
+                  - /url: /services/api/flickr.urls.lookupGroup.html
+              - listitem [ref=e960]:
+                - link "flickr.urls.lookupUser" [ref=e962] [cursor=pointer]:
+                  - /url: /services/api/flickr.urls.lookupUser.html
+  - generic:
+    - generic [ref=e963]:
+      - paragraph [ref=e964]:
+        - text: This site uses cookies to improve your experience and to help show content that is more relevant to your interests. By using this site, you agree to the use of cookies by Flickr and our partners as described in our
+        - link "cookie policy" [ref=e965] [cursor=pointer]:
+          - /url: /help/cookies
+      - button "×" [ref=e966] [cursor=pointer]
+    - contentinfo [ref=e967]:
+      - generic [ref=e968]:
+        - list [ref=e971]:
+          - listitem [ref=e972]:
+            - link "About" [ref=e973] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e974]:
+            - link "Jobs" [ref=e975] [cursor=pointer]:
+              - /url: /jobs
+          - listitem [ref=e976]:
+            - link "Blog" [ref=e977] [cursor=pointer]:
+              - /url: //blog.flickr.net/en
+          - listitem [ref=e978]:
+            - link "Advertise" [ref=e979] [cursor=pointer]:
+              - /url: https://www.flickrads.com/?utm_source=flickr&utm_campaign=footer
+          - listitem [ref=e980]:
+            - link "Developers" [ref=e981] [cursor=pointer]:
+              - /url: /services/developer
+          - listitem [ref=e982]:
+            - link "Cookies" [ref=e983] [cursor=pointer]:
+              - /url: /help/cookies
+          - listitem [ref=e984]:
+            - link "Guidelines" [ref=e985] [cursor=pointer]:
+              - /url: /help/guidelines
+          - listitem [ref=e986]:
+            - link "Help" [ref=e987] [cursor=pointer]:
+              - /url: //flickrhelp.com/
+          - listitem [ref=e988]:
+            - link "Report abuse" [ref=e989] [cursor=pointer]:
+              - /url: /abuse
+          - listitem [ref=e990]:
+            - link "English" [ref=e993] [cursor=pointer]:
+              - /url: "#"
+        - generic [ref=e995]:
+          - list [ref=e997]:
+            - listitem [ref=e998]:
+              - link "Legal" [ref=e999] [cursor=pointer]:
+                - /url: /help/legal/
+            - listitem [ref=e1000]:
+              - link "Privacy" [ref=e1001] [cursor=pointer]:
+                - /url: /help/privacy/
+            - listitem [ref=e1002]:
+              - link "Terms" [ref=e1003] [cursor=pointer]:
+                - /url: /help/terms
+          - generic [ref=e1004]:
+            - link [ref=e1005] [cursor=pointer]:
+              - /url: https://www.awesome.co
+            - paragraph [ref=e1015]: Connecting people through photography.
+            - link [ref=e1016] [cursor=pointer]:
+              - /url: https://www.onepercentfortheplanet.org/
+            - link [ref=e1036] [cursor=pointer]:
+              - /url: https://www.greatplacetowork.com/certified-company/7051750
+            - link [ref=e1069] [cursor=pointer]:
+              - /url: https://www.climateneutral.org/brand/flickr
+            - link [ref=e1113] [cursor=pointer]:
+              - /url: https://www.conservationalliance.com/
+            - link [ref=e1141] [cursor=pointer]:
+              - /url: https://www.tugboatinstitute.com/certified-evergreen/
+          - generic [ref=e1165]:
+            - link [ref=e1166] [cursor=pointer]:
+              - /url: https://www.facebook.com/flickr
+            - link [ref=e1169] [cursor=pointer]:
+              - /url: https://www.youtube.com/user/smugmug
+            - link [ref=e1172] [cursor=pointer]:
+              - /url: https://www.instagram.com/flickr/
