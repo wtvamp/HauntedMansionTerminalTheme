@@ -21,7 +21,9 @@ prompt, a ghost-and-epitaph greeting on every new shell, and an animated ride. F
 |---|---|---|---|
 | Emulator color schemes | `dist/` (generated, committed) | — | Users need them without a Go toolchain |
 | Codegen that produces them | `cmd/conjure/`, `internal/emit/` | Go | Same toolchain as the ride; no second runtime |
-| Shell prompt + greeting | `shell/` | zsh builtins | Runs on **every** shell open — cannot spawn a runtime |
+| Prompt | `dist/starship/` (generated) | Starship TOML | Rich data: git state, language versions, cloud context |
+| Shell glue + greeting | `shell/` | zsh builtins | Runs on **every** shell open — cannot spawn a runtime |
+| CLI tool themes | `dist/` (generated) | bat / eza / fzf / delta | Same palette across everything the terminal shows |
 | The ride | `cmd/doombuggy/`, `internal/ride/` | Go / Bubble Tea | Static binary, zero runtime deps |
 | Lore: quotes | `content/quotes.txt` | plain text | Contributors add lore without touching code |
 | Portraits | `content/photos/`, `cmd/portrait/` | JPEG + Go | Photographs rendered to colour half-blocks |
@@ -45,7 +47,7 @@ bin/doombuggy --frame graveyard                 # render one scene to stdout
 bin/doombuggy --frame graveyard --at 40         # ...at a specific tick
 bin/doombuggy --skip-intro                      # bypass the stretching room
 bin/doombuggy --color 16                        # force a degraded palette
-bin/conjure -list                               # what targets exist
+bin/conjure -list                               # what targets exist (13)
 bin/portrait -blocks -quantize=false -w 58 pic.jpg   # any image -> colour half-blocks
 CONJURE_TARGET=ghostty make generate            # regenerate one emulator
 ```
@@ -92,6 +94,36 @@ can actually reach — measure before changing one:
 
 Beyond the tests, the three canonical eyeball checks are `git diff`, `ls --color`, and a failing test's
 output. If a palette change makes any of them harder to read, the change is wrong however good it looks.
+
+## The prompt is Starship; the zsh theme is the fallback
+
+`dist/starship/haunted-mansion.toml` is generated from the palette like every other target, and it is
+what a user actually sees: git branch and per-state counts, language versions, docker/k8s/aws/azure
+context, command duration, exit status. It needs a Nerd Font for the powerline separators and glyphs.
+
+`shell/haunted-mansion.zsh-theme` still exists as the zero-dependency prompt, and **returns early when
+Starship is active** rather than fighting it for `$PROMPT`. Two prompts setting `PROMPT` in the same
+shell is a bug that presents as "my config randomly doesn't apply".
+
+Load order matters and is encoded in the symlink names `make install` creates: `48` tools (which runs
+`starship init`), `49` the fallback theme, `50` the greeting. All of it must come **after**
+`oh-my-zsh.sh`, which sets its own `PROMPT`.
+
+## Themes for the CLI tools
+
+Everything the terminal shows comes from the same palette:
+
+- **bat** — `dist/bat/haunted-mansion.tmTheme`. bat resolves a theme by its **filename**, not the
+  `<key>name</key>` inside the plist, and needs `bat cache --build` after install. `make install` does both.
+- **eza** — `dist/shell/_eza.zsh`, `EZA_COLORS` plus the `ll`/`lt` aliases.
+- **fzf** — `FZF_DEFAULT_OPTS` in `dist/shell/_tools.zsh`.
+- **delta** — `dist/git/haunted-mansion.gitconfig`, to be `[include]`d from `~/.gitconfig`. Its
+  added/removed colours are the plain theme green and red on purpose: a diff is the one place where
+  getting the direction wrong costs real work.
+
+eza and fzf emit **ANSI slot numbers**, not hex, so they follow whatever theme the terminal has
+loaded — same reasoning as the portraits. bat, delta and starship emit hex, because they paint their
+own surfaces rather than reusing the terminal's sixteen colours.
 
 ## The startup greeting has a latency budget
 

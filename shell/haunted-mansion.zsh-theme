@@ -6,6 +6,14 @@
 # prompt for free. If you find yourself wanting a color that has no role, add the
 # role to palette/haunted-mansion.yaml rather than a literal here.
 
+# Starship, if installed, is the better prompt: it shows git state, language
+# versions and cloud context, and it is configured from the same palette
+# (dist/starship/). This file is the zero-dependency fallback, so it gets out of
+# the way rather than fighting starship for $PROMPT.
+if (( $+commands[starship] )) && [[ -n ${STARSHIP_CONFIG:-} ]]; then
+  return 0
+fi
+
 () {
   emulate -L zsh
   local root=${HM_ROOT:-${${(%):-%x}:A:h:h}}

@@ -21,7 +21,6 @@ func view(t *testing.T) *emit.View {
 func TestEveryTargetRenders(t *testing.T) {
 	v := view(t)
 	p := palette.Default()
-	bg := p.MustColor("background")
 
 	for _, target := range emit.Targets() {
 		t.Run(target.Name, func(t *testing.T) {
@@ -35,13 +34,13 @@ func TestEveryTargetRenders(t *testing.T) {
 			}
 			// Every format carries the background somewhere, in one spelling or
 			// the other. If it does not, the template is wired to the wrong field.
-			// iTerm2's plist stores components as floats, so check that spelling
-			// too rather than hardcoding one palette's values.
-			r, _, _ := bg.Floats()
-			asFloat := fmt.Sprintf("%.10f", r)
-			if !strings.Contains(s, bg.Hex()) && !strings.Contains(s, strings.TrimPrefix(bg.Hex(), "#")) &&
-				!strings.Contains(s, asFloat) {
-				t.Errorf("output never mentions the background color %s", bg.Hex())
+			// The point of this check is to catch a template wired to a field
+			// the View does not have, which renders as empty rather than as an
+			// error. Requiring the *background* specifically was wrong: eza and
+			// the shell tools deliberately emit ANSI slot numbers so they follow
+			// the terminal's theme, and never name a hex at all.
+			if !mentionsPalette(s, p) {
+				t.Errorf("output references no palette colour at all — is the template wired to the right fields?")
 			}
 			if strings.Contains(s, "<no value>") {
 				t.Error("template referenced a field the View does not have")
@@ -51,6 +50,29 @@ func TestEveryTargetRenders(t *testing.T) {
 			}
 		})
 	}
+}
+
+// mentionsPalette reports whether the output names any palette colour, in any
+// of the three spellings a target might use: hex, bare hex, or an SGR code.
+func mentionsPalette(out string, p *palette.Palette) bool {
+	for _, name := range p.Names() {
+		c := p.MustColor(name)
+		if strings.Contains(out, c.Hex()) || strings.Contains(out, strings.TrimPrefix(c.Hex(), "#")) {
+			return true
+		}
+	}
+	bg := p.MustColor("background")
+	r, _, _ := bg.Floats()
+	if strings.Contains(out, fmt.Sprintf("%.10f", r)) {
+		return true
+	}
+	// SGR foreground codes, as EZA_COLORS and friends use.
+	for i := 0; i < 8; i++ {
+		if strings.Contains(out, fmt.Sprintf("%d", 30+i)) && strings.Contains(out, "=") {
+			return true
+		}
+	}
+	return false
 }
 
 func TestJSONTargetsAreValidJSON(t *testing.T) {

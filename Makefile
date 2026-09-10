@@ -46,18 +46,30 @@ install: generate ## Install binaries to ~/.local/bin and shell files to ~/.zshr
 	@mkdir -p $(PREFIX)/bin $(ZSHDIR)
 	@install -m 0755 $(BIN)/doombuggy $(PREFIX)/bin/doombuggy
 	@install -m 0755 $(BIN)/conjure $(PREFIX)/bin/conjure
-	@ln -sf $(CURDIR)/shell/greeting.sh $(ZSHDIR)/50-haunted-mansion-greeting.zsh
+	@ln -sf $(CURDIR)/shell/tools.zsh $(ZSHDIR)/48-haunted-mansion-tools.zsh
 	@ln -sf $(CURDIR)/shell/haunted-mansion.zsh-theme $(ZSHDIR)/49-haunted-mansion-theme.zsh
+	@ln -sf $(CURDIR)/shell/greeting.sh $(ZSHDIR)/50-haunted-mansion-greeting.zsh
+	@# bat resolves a theme by FILENAME, not by the name inside the plist.
+	@if command -v bat >/dev/null 2>&1; then \
+		mkdir -p "$$(bat --config-dir)/themes"; \
+		install -m 0644 dist/bat/haunted-mansion.tmTheme "$$(bat --config-dir)/themes/"; \
+		bat cache --build >/dev/null 2>&1 && echo "  installed the bat theme"; \
+	fi
 	@echo "  installed. add this to ~/.zshrc if it is not there already:"
 	@echo ""
 	@echo "      export HM_ROOT=$(CURDIR)"
 	@echo "      for f in $(ZSHDIR)/*.zsh(N); do source \$$f; done"
 	@echo ""
+	@echo "  for themed git diffs (needs delta), add to ~/.gitconfig:"
+	@echo ""
+	@echo "      [include]"
+	@echo "          path = $(CURDIR)/dist/git/haunted-mansion.gitconfig"
+	@echo ""
 	@echo "  then point your terminal at a file in dist/ — see README.md"
 
 uninstall: ## Remove what install put in place
 	@rm -f $(PREFIX)/bin/doombuggy $(PREFIX)/bin/conjure
-	@rm -f $(ZSHDIR)/50-haunted-mansion-greeting.zsh $(ZSHDIR)/49-haunted-mansion-theme.zsh
+	@rm -f $(ZSHDIR)/48-haunted-mansion-tools.zsh $(ZSHDIR)/49-haunted-mansion-theme.zsh $(ZSHDIR)/50-haunted-mansion-greeting.zsh
 	@echo "  removed. HM_ROOT and the source line in ~/.zshrc are yours to delete."
 
 clean: ## Remove build output (not dist/, which is committed)

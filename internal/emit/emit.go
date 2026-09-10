@@ -11,6 +11,7 @@ import (
 	"fmt"
 	"path"
 	"sort"
+	"strconv"
 	"strings"
 	"text/template"
 
@@ -41,6 +42,11 @@ var targets = []Target{
 	{"vscode", "vscode/haunted-mansion.json", "vscode.json.tmpl", ""},
 	{"wezterm", "wezterm/haunted-mansion.toml", "wezterm.toml.tmpl", "#"},
 	{"windows-terminal", "windows-terminal/haunted-mansion.json", "windows-terminal.json.tmpl", ""},
+	{"bat", "bat/haunted-mansion.tmTheme", "bat.tmTheme.tmpl", ""},
+	{"delta", "git/haunted-mansion.gitconfig", "delta.gitconfig.tmpl", "#"},
+	{"eza", "shell/_eza.zsh", "eza.zsh.tmpl", "#"},
+	{"starship", "starship/haunted-mansion.toml", "starship.toml.tmpl", "#"},
+	{"tools", "shell/_tools.zsh", "tools.zsh.tmpl", "#"},
 	{"zsh", "shell/_colors.zsh", "zsh.tmpl", "#"},
 }
 
@@ -94,6 +100,11 @@ type Entry struct {
 	R     float64
 	G     float64
 	B     float64
+	// Ansi is the SGR foreground code for this slot: 30-37 for the normal
+	// colours, 90-97 for the brights. Formats like EZA_COLORS and LS_COLORS
+	// speak in these rather than in hex, and using them means the output
+	// follows whatever theme the terminal actually has loaded.
+	Ansi string
 }
 
 // View is the whole palette flattened into what templates need.
@@ -117,11 +128,18 @@ type View struct {
 func entry(p *palette.Palette, key, label string, index int) Entry {
 	c := p.MustColor(key)
 	r, g, b := c.Floats()
-	return Entry{
+	e := Entry{
 		Index: index, Key: key, Label: label,
 		Hex: c.Hex(), Bare: strings.TrimPrefix(c.Hex(), "#"),
 		R: r, G: g, B: b,
 	}
+	switch {
+	case index >= 0 && index < 8:
+		e.Ansi = strconv.Itoa(30 + index)
+	case index >= 8 && index < 16:
+		e.Ansi = strconv.Itoa(90 + index - 8)
+	}
+	return e
 }
 
 // NewView flattens a palette for rendering.
@@ -193,6 +211,24 @@ func (v *View) RoleNames() []string {
 var funcs = template.FuncMap{
 	"upper": strings.ToUpper,
 	"lower": strings.ToLower,
+	// list and dict let a template declare a table of rows inline. The bat
+	// theme is thirty near-identical XML blocks; without these it is thirty
+	// copies of the same twelve lines.
+	"list": func(v ...interface{}) []interface{} { return v },
+	"dict": func(kv ...interface{}) (map[string]interface{}, error) {
+		if len(kv)%2 != 0 {
+			return nil, fmt.Errorf("dict needs an even number of arguments, got %d", len(kv))
+		}
+		m := make(map[string]interface{}, len(kv)/2)
+		for i := 0; i < len(kv); i += 2 {
+			k, ok := kv[i].(string)
+			if !ok {
+				return nil, fmt.Errorf("dict keys must be strings, got %T", kv[i])
+			}
+			m[k] = kv[i+1]
+		}
+		return m, nil
+	},
 	// ansi256 maps a slot to the xterm-256 index, which is just the slot.
 	"ansi256": func(i int) int { return i },
 }

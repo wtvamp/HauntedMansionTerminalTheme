@@ -38,6 +38,21 @@ And point your terminal at the matching file in `dist/`:
 
 You do not need Go to use the theme — `dist/` is committed.
 
+## The prompt
+
+The prompt is [Starship](https://starship.rs), themed from the same palette. It shows the git branch
+with per-state counts, language versions, docker/kubernetes/aws/azure context, how long the last
+command took, and whether it failed.
+
+```sh
+brew install starship
+# make install wires it up; needs a Nerd Font for the separators
+```
+
+`make install` also themes **bat**, **eza**, **fzf** and **delta** from the palette, so syntax
+highlighting, file listings, fuzzy search and git diffs all match. Without Starship you get a
+lighter built-in zsh prompt instead.
+
 ## The ride
 
 ```sh
