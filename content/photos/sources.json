@@ -27,6 +27,13 @@
     "licenseurl": "https://creativecommons.org/licenses/by-sa/2.0/",
     "title": "Changing portrait, Haunted Mansion, Disneyland"
   },
+  "cobwebs": {
+    "artist": "gruntzooki",
+    "descriptionurl": "https://www.flickr.com/photos/37996580417@N01/53022310464",
+    "license": "CC BY-SA 2.0",
+    "licenseurl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "title": "Cobwebs and staircase, queue area, Haunted Mansion, Disneyland, Anaheim, Orange County, California, USA."
+  },
   "doom-buggies": {
     "artist": "Cory Doctorow",
     "descriptionurl": "https://commons.wikimedia.org/wiki/File:Doombuggies,_Haunted_Mansion,_Disneyland.jpg",
@@ -34,12 +41,26 @@
     "licenseurl": "https://creativecommons.org/licenses/by-sa/2.0",
     "title": "File:Doombuggies, Haunted Mansion, Disneyland.jpg"
   },
+  "endless-hallway": {
+    "artist": "cpzfdcpg96",
+    "descriptionurl": "https://www.flickr.com/photos/195760474@N06/52365520739",
+    "license": "CC BY 2.0",
+    "licenseurl": "https://creativecommons.org/licenses/by/2.0/",
+    "title": "Haunted Mansion - Endless Hallway"
+  },
   "epitaph": {
     "artist": "Freddo",
     "descriptionurl": "https://commons.wikimedia.org/wiki/File:Haunted_Mansion_at_Magic_Kingdom_-_Leota.jpg",
     "license": "CC BY-SA 4.0",
     "licenseurl": "https://creativecommons.org/licenses/by-sa/4.0",
     "title": "File:Haunted Mansion at Magic Kingdom - Leota.jpg"
+  },
+  "gargoyle-lights": {
+    "artist": "gruntzooki",
+    "descriptionurl": "https://www.flickr.com/photos/37996580417@N01/43379624431",
+    "license": "CC BY-SA 2.0",
+    "licenseurl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "title": "Gargoyle lights 1, Haunted Mansion, Tokyo Disneyland, Tokyo Disney Resort, Chiba, Tokyo, Japan"
   },
   "graveyard": {
     "artist": "Sam Howzit",
@@ -62,12 +83,26 @@
     "licenseurl": "https://creativecommons.org/licenses/by/2.0",
     "title": "File:Disneyland 2015 Hatbox Ghost Photo.jpg"
   },
+  "hearse": {
+    "artist": "mrkathika",
+    "descriptionurl": "https://www.flickr.com/photos/23842402@N07/2601481374",
+    "license": "CC BY-SA 2.0",
+    "licenseurl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "title": "Hearse Carriage Haunted Mansion magic Kingdom Walt Disney World"
+  },
   "hitchhiking-ghosts": {
     "artist": "Danny Thompson Jr",
     "descriptionurl": "https://www.flickr.com/photos/64985588@N06/6818745572",
     "license": "CC BY 2.0",
     "licenseurl": "https://creativecommons.org/licenses/by/2.0/",
     "title": "Hitchhiking Ghosts"
+  },
+  "lemme-outta-here": {
+    "artist": "gruntzooki",
+    "descriptionurl": "https://www.flickr.com/photos/37996580417@N01/53022629328",
+    "license": "CC BY-SA 2.0",
+    "licenseurl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "title": "Lemme Outta Here coffin, Haunted Mansion, Disneyland, Anaheim, Orange County, California, USA."
   },
   "mansion": {
     "artist": "Elisa.rolle",
@@ -83,6 +118,20 @@
     "licenseurl": "https://creativecommons.org/licenses/by-sa/4.0",
     "title": "File:Haunted Mansion (Magic Kingdom) 3.jpg"
   },
+  "organ": {
+    "artist": "Sam Howzit",
+    "descriptionurl": "https://www.flickr.com/photos/12508217@N08/8304864763",
+    "license": "CC BY 2.0",
+    "licenseurl": "https://creativecommons.org/licenses/by/2.0/",
+    "title": "Organ Pipes"
+  },
+  "pet-cemetery": {
+    "artist": "Sam Howzit",
+    "descriptionurl": "https://www.flickr.com/photos/12508217@N08/51642915037",
+    "license": "CC BY 2.0",
+    "licenseurl": "https://creativecommons.org/licenses/by/2.0/",
+    "title": "Pet Cemetery"
+  },
   "singing-busts": {
     "artist": "HarshLight",
     "descriptionurl": "https://commons.wikimedia.org/wiki/File:Disneyland_Haunted_Mansion_Singing_Busts.jpg",
@@ -96,5 +145,12 @@
     "license": "CC BY-SA 2.0",
     "licenseurl": "https://creativecommons.org/licenses/by-sa/2.0/",
     "title": "Stretch room portraits4, Haunted Mansion, Disneyland, Anaheim, Orange County, California, USA"
+  },
+  "thirteen-hour-clock": {
+    "artist": "jparise",
+    "descriptionurl": "https://www.flickr.com/photos/17818511@N00/3090954123",
+    "license": "CC BY-SA 2.0",
+    "licenseurl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "title": "Haunted Mansion Clock"
   }
 }
