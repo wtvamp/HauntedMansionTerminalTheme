@@ -145,6 +145,18 @@
       "saturation": 1.3,
       "vignette": 0.28
     },
+    "little-leota": {
+      "autocontrast": false,
+      "crop": [
+        0,
+        0.04,
+        1,
+        0.96
+      ],
+      "gamma": 1.35,
+      "saturation": 1.3,
+      "vignette": 0.26
+    },
     "mansion": {
       "autocontrast": false,
       "crop": [
