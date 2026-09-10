@@ -1,4 +1,11 @@
 {
+  "ballroom": {
+    "artist": "aagay",
+    "descriptionurl": "https://www.flickr.com/photos/104082864@N04/52371502356",
+    "license": "CC BY-SA 2.0",
+    "licenseurl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "title": "The Haunted Mansion Ballroom"
+  },
   "boot-hill": {
     "artist": "Jeremy Thompson",
     "descriptionurl": "https://commons.wikimedia.org/wiki/File:Phantom_Manor_Boot_Hill.jpg",
@@ -12,6 +19,13 @@
     "license": "CC BY 2.0",
     "licenseurl": "https://creativecommons.org/licenses/by/2.0",
     "title": "File:Ghostly Writers (28680482260).jpg"
+  },
+  "changing-portrait": {
+    "artist": "gruntzooki",
+    "descriptionurl": "https://www.flickr.com/photos/37996580417@N01/368654649",
+    "license": "CC BY-SA 2.0",
+    "licenseurl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "title": "Changing portrait, Haunted Mansion, Disneyland"
   },
   "doom-buggies": {
     "artist": "Cory Doctorow",
@@ -27,6 +41,13 @@
     "licenseurl": "https://creativecommons.org/licenses/by-sa/4.0",
     "title": "File:Haunted Mansion at Magic Kingdom - Leota.jpg"
   },
+  "graveyard": {
+    "artist": "Sam Howzit",
+    "descriptionurl": "https://www.flickr.com/photos/12508217@N08/51644394899",
+    "license": "CC BY 2.0",
+    "licenseurl": "https://creativecommons.org/licenses/by/2.0/",
+    "title": "Graveyard"
+  },
   "hall-of-portraits": {
     "artist": "Space Mountain Mike at English Wikipedia",
     "descriptionurl": "https://commons.wikimedia.org/wiki/File:Hall_of_portraits,_Haunted_Mansion,_Disneyland.jpg",
@@ -40,6 +61,13 @@
     "license": "CC BY 2.0",
     "licenseurl": "https://creativecommons.org/licenses/by/2.0",
     "title": "File:Disneyland 2015 Hatbox Ghost Photo.jpg"
+  },
+  "hitchhiking-ghosts": {
+    "artist": "Danny Thompson Jr",
+    "descriptionurl": "https://www.flickr.com/photos/64985588@N06/6818745572",
+    "license": "CC BY 2.0",
+    "licenseurl": "https://creativecommons.org/licenses/by/2.0/",
+    "title": "Hitchhiking Ghosts"
   },
   "mansion": {
     "artist": "Elisa.rolle",
@@ -61,5 +89,12 @@
     "license": "CC BY 2.0",
     "licenseurl": "https://creativecommons.org/licenses/by/2.0",
     "title": "File:Disneyland Haunted Mansion Singing Busts.jpg"
+  },
+  "stretching-room": {
+    "artist": "gruntzooki",
+    "descriptionurl": "https://www.flickr.com/photos/37996580417@N01/53024863895",
+    "license": "CC BY-SA 2.0",
+    "licenseurl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "title": "Stretch room portraits4, Haunted Mansion, Disneyland, Anaheim, Orange County, California, USA"
   }
 }

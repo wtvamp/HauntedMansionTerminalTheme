@@ -155,6 +155,21 @@ that prompt expansion mangles.
 - `content/photos/sources.json`, `ATTRIBUTION.md` — photographer, licence and source URL per file.
   `TestEveryPhotoIsCredited` fails the build if a photo is missing from either.
 
+**Finding more photographs.** Wikimedia Commons only has exteriors and the queue; the ride interiors
+live on Flickr, which [Openverse](https://api.openverse.org) aggregates. Its anonymous quota is a few
+requests before Cloudflare takes over, so use a key — registration is one POST to
+`/v1/auth_tokens/register/` plus an emailed verification link, no browser needed, and no Flickr
+account is required because Openverse returns Flickr's images with full licence metadata. Credentials
+for this machine are in `~/.config/haunted-mansion/openverse.env` (never in the repo).
+
+Search on Commons by **category**, not keyword: keyword search matches the text of old books about
+haunted houses. `Category:Haunted Mansion at Disneyland` and friends return two orders of magnitude
+more usable files.
+
+Judge every candidate by rendering it at 58 columns and *looking* at it. Titles lie (a Commons file
+called "…- Leota" is a queue tombstone), and a dark-ride interior shot handheld is usually
+unrecoverable — pushing gamma past ~3 turns sensor noise into coloured speckle rather than an image.
+
 Both quotes and photos are data. Adding a quote needs no code change; adding a photo needs a
 `render.json` entry and a credit, and `TestPortraitsFitATerminal` will tell you if the crop is wrong.
 
