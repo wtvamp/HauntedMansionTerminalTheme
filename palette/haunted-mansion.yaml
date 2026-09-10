@@ -12,59 +12,59 @@ name: Haunted Mansion
 slug: haunted-mansion
 author: Leota
 description: >-
-  999 happy haunts, rendered in parchment and ectoplasm. A violet-tinted crypt dark
-  with gaslight brass, oxblood velvet and Pepper's-ghost blue.
+  999 happy haunts, rendered in bone and ectoplasm. A cold blue-violet crypt dark
+  lit by Pepper's ghost, with candle brass and oxblood velvet held back for warnings.
 
 ui:
-  background:          "#14121A"  # crypt dark, violet-tinted rather than neutral black
-  foreground:          "#D8CBB0"  # parchment / bone
-  cursor:              "#9FE870"  # ectoplasm
-  cursor_text:         "#14121A"
-  selection_background: "#3A3346"  # doom buggy upholstery
-  selection_foreground: "#F0E6D2"
+  background:          "#111319"  # crypt dark, blue-violet rather than neutral black
+  foreground:          "#C7D0DD"  # parchment / bone
+  cursor:              "#8FE3C4"  # ectoplasm
+  cursor_text:         "#111319"
+  selection_background: "#2B3242"  # doom buggy upholstery
+  selection_foreground: "#E6ECF5"
 
 # The sixteen ANSI slots. `name` is the lore; the slot is the contract.
 ansi:
   - slot: 0
     key: black
     name: doom buggy
-    normal: "#1C1826"
-    bright: "#3A3346"
+    normal: "#1F2431"
+    bright: "#363D4C"
   - slot: 1
     key: red
     name: oxblood velvet
-    normal: "#BC4040"
-    bright: "#E56565"
+    normal: "#C1484F"
+    bright: "#E86F76"
   - slot: 2
     key: green
-    name: madame leota
-    normal: "#7DBE5C"
-    bright: "#9FE870"
+    name: ectoplasm
+    normal: "#5FBE8C"
+    bright: "#93F2A0"
   - slot: 3
     key: yellow
-    name: gaslight brass
-    normal: "#BE9722"
-    bright: "#EFC04F"
+    name: candle brass
+    normal: "#C2A24C"
+    bright: "#EBC66A"
   - slot: 4
     key: blue
     name: moonlight
-    normal: "#4A6FA5"
-    bright: "#6E93C4"
+    normal: "#4F7CB8"
+    bright: "#7BA3D8"
   - slot: 5
     key: magenta
     name: hatbox ghost
-    normal: "#7E5AA2"
-    bright: "#A97FD4"
+    normal: "#8663B4"
+    bright: "#AF8BDE"
   - slot: 6
     key: cyan
-    name: ballroom pepper
-    normal: "#6FA8B5"
-    bright: "#A8D8E8"
+    name: pepper's ghost
+    normal: "#5FA9BE"
+    bright: "#96D6EA"
   - slot: 7
     key: white
-    name: parchment
-    normal: "#D8CBB0"
-    bright: "#F0E6D2"
+    name: bone
+    normal: "#C7D0DD"
+    bright: "#E6ECF5"
 
 # Named roles for the prompt and the ride. Each MUST resolve to an ansi key or a ui
 # key above — these are aliases, not new colors, so a palette change propagates and

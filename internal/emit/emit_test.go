@@ -2,6 +2,7 @@ package emit_test
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 	"testing"
 
@@ -34,8 +35,12 @@ func TestEveryTargetRenders(t *testing.T) {
 			}
 			// Every format carries the background somewhere, in one spelling or
 			// the other. If it does not, the template is wired to the wrong field.
+			// iTerm2's plist stores components as floats, so check that spelling
+			// too rather than hardcoding one palette's values.
+			r, _, _ := bg.Floats()
+			asFloat := fmt.Sprintf("%.10f", r)
 			if !strings.Contains(s, bg.Hex()) && !strings.Contains(s, strings.TrimPrefix(bg.Hex(), "#")) &&
-				!strings.Contains(s, "0.0784313725") {
+				!strings.Contains(s, asFloat) {
 				t.Errorf("output never mentions the background color %s", bg.Hex())
 			}
 			if strings.Contains(s, "<no value>") {

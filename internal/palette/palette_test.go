@@ -236,5 +236,5 @@ func ExamplePalette_Color() {
 	p := Default()
 	c, _ := p.Color("prompt_path")
 	fmt.Println(c.Hex())
-	// Output: #6FA8B5
+	// Output: #5FA9BE
 }

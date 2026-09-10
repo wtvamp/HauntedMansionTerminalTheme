@@ -2,44 +2,44 @@
 #
 # Sourced by the prompt and the greeting. Hex values are here for truecolor
 # terminals; the _idx variants are ANSI slot numbers for everything else.
-typeset -g HM_BLACK='#1C1826'
+typeset -g HM_BLACK='#1F2431'
 typeset -g HM_BLACK_IDX=0
-typeset -g HM_RED='#BC4040'
+typeset -g HM_RED='#C1484F'
 typeset -g HM_RED_IDX=1
-typeset -g HM_GREEN='#7DBE5C'
+typeset -g HM_GREEN='#5FBE8C'
 typeset -g HM_GREEN_IDX=2
-typeset -g HM_YELLOW='#BE9722'
+typeset -g HM_YELLOW='#C2A24C'
 typeset -g HM_YELLOW_IDX=3
-typeset -g HM_BLUE='#4A6FA5'
+typeset -g HM_BLUE='#4F7CB8'
 typeset -g HM_BLUE_IDX=4
-typeset -g HM_MAGENTA='#7E5AA2'
+typeset -g HM_MAGENTA='#8663B4'
 typeset -g HM_MAGENTA_IDX=5
-typeset -g HM_CYAN='#6FA8B5'
+typeset -g HM_CYAN='#5FA9BE'
 typeset -g HM_CYAN_IDX=6
-typeset -g HM_WHITE='#D8CBB0'
+typeset -g HM_WHITE='#C7D0DD'
 typeset -g HM_WHITE_IDX=7
-typeset -g HM_BRIGHT_BLACK='#3A3346'
+typeset -g HM_BRIGHT_BLACK='#363D4C'
 typeset -g HM_BRIGHT_BLACK_IDX=8
-typeset -g HM_BRIGHT_RED='#E56565'
+typeset -g HM_BRIGHT_RED='#E86F76'
 typeset -g HM_BRIGHT_RED_IDX=9
-typeset -g HM_BRIGHT_GREEN='#9FE870'
+typeset -g HM_BRIGHT_GREEN='#93F2A0'
 typeset -g HM_BRIGHT_GREEN_IDX=10
-typeset -g HM_BRIGHT_YELLOW='#EFC04F'
+typeset -g HM_BRIGHT_YELLOW='#EBC66A'
 typeset -g HM_BRIGHT_YELLOW_IDX=11
-typeset -g HM_BRIGHT_BLUE='#6E93C4'
+typeset -g HM_BRIGHT_BLUE='#7BA3D8'
 typeset -g HM_BRIGHT_BLUE_IDX=12
-typeset -g HM_BRIGHT_MAGENTA='#A97FD4'
+typeset -g HM_BRIGHT_MAGENTA='#AF8BDE'
 typeset -g HM_BRIGHT_MAGENTA_IDX=13
-typeset -g HM_BRIGHT_CYAN='#A8D8E8'
+typeset -g HM_BRIGHT_CYAN='#96D6EA'
 typeset -g HM_BRIGHT_CYAN_IDX=14
-typeset -g HM_BRIGHT_WHITE='#F0E6D2'
+typeset -g HM_BRIGHT_WHITE='#E6ECF5'
 typeset -g HM_BRIGHT_WHITE_IDX=15
-typeset -g HM_UI_BACKGROUND='#14121A'
-typeset -g HM_UI_CURSOR='#9FE870'
-typeset -g HM_UI_CURSOR_TEXT='#14121A'
-typeset -g HM_UI_FOREGROUND='#D8CBB0'
-typeset -g HM_UI_SELECTION_BACKGROUND='#3A3346'
-typeset -g HM_UI_SELECTION_FOREGROUND='#F0E6D2'
+typeset -g HM_UI_BACKGROUND='#111319'
+typeset -g HM_UI_CURSOR='#8FE3C4'
+typeset -g HM_UI_CURSOR_TEXT='#111319'
+typeset -g HM_UI_FOREGROUND='#C7D0DD'
+typeset -g HM_UI_SELECTION_BACKGROUND='#2B3242'
+typeset -g HM_UI_SELECTION_FOREGROUND='#E6ECF5'
 
 # Roles: semantic names the prompt uses, so the prompt never names a color.
 typeset -g HM_ROLE_GREETING_GHOST=14
