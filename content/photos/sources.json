@@ -1,4 +1,18 @@
 {
+  "boot-hill": {
+    "artist": "Jeremy Thompson",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Phantom_Manor_Boot_Hill.jpg",
+    "license": "CC BY 2.0",
+    "licenseurl": "https://creativecommons.org/licenses/by/2.0",
+    "title": "File:Phantom Manor Boot Hill.jpg"
+  },
+  "candlelight": {
+    "artist": "RT Images",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Ghostly_Writers_(28680482260).jpg",
+    "license": "CC BY 2.0",
+    "licenseurl": "https://creativecommons.org/licenses/by/2.0",
+    "title": "File:Ghostly Writers (28680482260).jpg"
+  },
   "doom-buggies": {
     "artist": "Cory Doctorow",
     "descriptionurl": "https://commons.wikimedia.org/wiki/File:Doombuggies,_Haunted_Mansion,_Disneyland.jpg",
@@ -12,6 +26,20 @@
     "license": "CC BY-SA 4.0",
     "licenseurl": "https://creativecommons.org/licenses/by-sa/4.0",
     "title": "File:Haunted Mansion at Magic Kingdom - Leota.jpg"
+  },
+  "hall-of-portraits": {
+    "artist": "Space Mountain Mike at English Wikipedia",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Hall_of_portraits,_Haunted_Mansion,_Disneyland.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseurl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "title": "File:Hall of portraits, Haunted Mansion, Disneyland.jpg"
+  },
+  "hatbox-ghost": {
+    "artist": "HarshLight from San Jose, CA, USA",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Disneyland_2015_Hatbox_Ghost_Photo.jpg",
+    "license": "CC BY 2.0",
+    "licenseurl": "https://creativecommons.org/licenses/by/2.0",
+    "title": "File:Disneyland 2015 Hatbox Ghost Photo.jpg"
   },
   "mansion": {
     "artist": "Elisa.rolle",

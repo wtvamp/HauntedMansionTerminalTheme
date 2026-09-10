@@ -1,6 +1,24 @@
 {
   "_comment": "Per-photo settings for the half-block renderer. These are framing and exposure decisions, not style: most sources are underexposed dark-ride interiors, and a camera's framing is not a 58-column grid's framing. crop is [left, top, right, bottom] as fractions. Width is in terminal columns.",
   "photos": {
+    "boot-hill": {
+      "autocontrast": false,
+      "crop": [
+        0,
+        0.04,
+        1,
+        0.96
+      ],
+      "gamma": 1.15,
+      "saturation": 1.15,
+      "vignette": 0.35
+    },
+    "candlelight": {
+      "autocontrast": true,
+      "gamma": 1.8,
+      "saturation": 1.35,
+      "vignette": 0.25
+    },
     "doom-buggies": {
       "autocontrast": true,
       "crop": [
@@ -24,6 +42,18 @@
       "gamma": 1.25,
       "saturation": 1.15,
       "vignette": 0.35
+    },
+    "hall-of-portraits": {
+      "autocontrast": false,
+      "gamma": 1.25,
+      "saturation": 1.2,
+      "vignette": 0.3
+    },
+    "hatbox-ghost": {
+      "autocontrast": false,
+      "gamma": 1.45,
+      "saturation": 1.25,
+      "vignette": 0.28
     },
     "mansion": {
       "autocontrast": false,
