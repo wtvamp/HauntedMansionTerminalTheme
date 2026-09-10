@@ -18,11 +18,13 @@ func (hitchhikers) Title() string { return "The Hitchhiking Ghosts" }
 func (hitchhikers) Ticks() int    { return 64 }
 
 func (h hitchhikers) Render(f ride.Frame) string {
-	art, ok := contentdata.Ghost("hitchhikers")
+	// Art applies the portrait's own region colours, so the ghosts look the same
+	// here as they do in the shell greeting.
+	art, ok := f.Style.Art("hitchhikers", "ride_ectoplasm")
 	if !ok {
 		// The art is embedded, so this only fires if someone deleted the file —
 		// better a plain line than a blank scene.
-		art = "Ezra, Phineas and Gus have found a ride"
+		art = f.Style.Paint("ride_ectoplasm", "Ezra, Phineas and Gus have found a ride")
 	}
 
 	// Slide in from the right over the first half, then hold.
@@ -33,10 +35,13 @@ func (h hitchhikers) Render(f ride.Frame) string {
 	pad := strings.Repeat(" ", slide)
 
 	var b strings.Builder
-	for _, line := range strings.Split(art, "\n") {
-		b.WriteString(pad + line + "\n")
+	for i, line := range strings.Split(art, "\n") {
+		if i > 0 {
+			b.WriteByte('\n')
+		}
+		b.WriteString(pad + line)
 	}
-	out := f.Style.Paint("ride_ectoplasm", strings.TrimRight(b.String(), "\n"))
+	out := b.String()
 
 	if f.Progress > 0.55 {
 		quotes := contentdata.Quotes()

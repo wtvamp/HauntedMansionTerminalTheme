@@ -121,11 +121,29 @@ that prompt expansion mangles.
   the prompt away the moment a shell opens. `TestShippedArt` enforces all three. Box-drawing and
   Unicode belong in the ride, where capability is known.
 
-  The art is **generated, not hand-drawn**: `tools/render-portraits/` draws source images from
-  primitives and `cmd/portrait` converts them. `make portraits` regenerates every file. Hand-editing a
-  `.txt` works until the next regeneration overwrites it — change the renderer instead. Read that
-  directory's README before touching the art; the constraints there (busts not scenes, near-square
-  canvas, one key light, hard details drawn last) are each a thing that was tried and failed.
+- `content/ghosts/*.map` — the colour map beside each portrait, same shape as the art, one character
+  per cell naming a **region** (frame, cloth, hair, skin, glow, accent). Regions resolve to `art_*`
+  palette roles, which is why recolouring the palette recolours the portraits with no redraw.
+
+  The art is **generated, not hand-drawn**: `tools/render-portraits/` draws source images plus a
+  companion region image, and `cmd/portrait` converts both. `make portraits` regenerates every file,
+  then `make generate` recolours `dist/`. Hand-editing a `.txt` works until the next regeneration
+  overwrites it — change the renderer instead. Read that directory's README first; its constraints
+  (busts not scenes, near-square canvas, one key light, hard details drawn last) are each a thing
+  that was tried and failed.
+
+### Portrait colour is baked at generate time
+
+`dist/ghosts/*.ans` are the portraits with escapes already in them, and the greeting just prints one.
+That is not premature optimisation: colouring ~1000 cells in zsh on every shell start would spend the
+whole 30ms budget, and printing a finished file costs one read (measured: 1.8ms all in).
+
+The escapes are **ANSI slot numbers, not hex**. The terminal resolves slot 14 with whatever theme is
+loaded, so the art is correct at 16 colours, at 256 and in truecolor, and someone running a different
+scheme gets their own palette rather than ours. Do not "improve" this to truecolor hex.
+
+The ride colours the same art through `Style.Art`, resolving the same map with lipgloss so it
+quantises per capability. A portrait therefore looks the same on shell start as it does in the ride.
 
 Both are data — adding lore needs no code change and no rebuild. The ride reads them through
 `content/embed.go`; the greeting reads them from disk.

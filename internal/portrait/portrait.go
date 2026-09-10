@@ -231,6 +231,142 @@ func trim(s string) string {
 	return strings.Join(lines, "\n") + "\n"
 }
 
+// Region is a tagged area of a rendered portrait. The renderer stamps these
+// into a companion image; the key is what gets stored beside the art.
+//
+// Keep in step with the constants at the top of tools/render-portraits/lib.py.
+type Region struct {
+	Value byte   // the grey level the renderer stamps
+	Key   byte   // the character stored in the .map file
+	Role  string // the palette role it resolves to
+}
+
+// REGIONS is the whole vocabulary. A cell that matches nothing lands on ground.
+var REGIONS = []Region{
+	{0, '.', "art_ground"},
+	{40, 'f', "art_frame"},
+	{80, 'c', "art_cloth"},
+	{120, 'h', "art_hair"},
+	{160, 's', "art_skin"},
+	{200, 'g', "art_glow"},
+	{240, 'a', "art_accent"},
+}
+
+// RoleForKey resolves a map character to a palette role.
+func RoleForKey(k byte) (string, bool) {
+	for _, r := range REGIONS {
+		if r.Key == k {
+			return r.Role, true
+		}
+	}
+	return "", false
+}
+
+// nearestRegion picks the region whose stamp value is closest to v. Downsampling
+// averages neighbouring stamps, so an exact match is not guaranteed and the
+// nearest one is the honest answer.
+func nearestRegion(v float64) Region {
+	best, bestD := REGIONS[0], math.MaxFloat64
+	for _, r := range REGIONS {
+		if d := math.Abs(v*255 - float64(r.Value)); d < bestD {
+			best, bestD = r, d
+		}
+	}
+	return best
+}
+
+// ConvertWithRegions renders the art and, from a companion region image, a map
+// of the same shape naming each cell's palette role.
+//
+// The two images must have the same aspect; the region image is sampled with a
+// mode filter rather than an average, because averaging region ids produces ids
+// that mean something else entirely.
+func ConvertWithRegions(img, regions image.Image, o Options) (art string, colorMap string, err error) {
+	art, err = Convert(img, o)
+	if err != nil {
+		return "", "", err
+	}
+	lines := strings.Split(strings.TrimRight(art, "\n"), "\n")
+	if len(lines) == 0 {
+		return art, "", nil
+	}
+
+	// Convert re-trims, so map the region image on the same grid as the art by
+	// running it through an untrimmed pass and cropping identically.
+	untrimmed := o
+	untrimmed.Trim = false
+	full, err := Convert(img, untrimmed)
+	if err != nil {
+		return "", "", err
+	}
+	fullLines := strings.Split(strings.TrimRight(full, "\n"), "\n")
+	rowOff, colOff := offsets(fullLines, lines)
+
+	b := regions.Bounds()
+	cols, rows := len(fullLines[0]), len(fullLines)
+	var mb strings.Builder
+	for y := 0; y < len(lines); y++ {
+		for x := 0; x < len(lines[y]); x++ {
+			if lines[y][x] == ' ' {
+				mb.WriteByte('.')
+				continue
+			}
+			gy, gx := y+rowOff, x+colOff
+			// Mode over the cell: the most common region wins, so a thin accent
+			// does not get averaged into the region next to it.
+			counts := map[byte]int{}
+			y0 := b.Min.Y + gy*b.Dy()/rows
+			y1 := b.Min.Y + (gy+1)*b.Dy()/rows
+			x0 := b.Min.X + gx*b.Dx()/cols
+			x1 := b.Min.X + (gx+1)*b.Dx()/cols
+			for yy := y0; yy < max(y1, y0+1); yy++ {
+				for xx := x0; xx < max(x1, x0+1); xx++ {
+					counts[nearestRegion(luminance(regions.At(xx, yy))).Key]++
+				}
+			}
+			bestKey, bestN := byte('.'), -1
+			for _, r := range REGIONS { // stable order, so ties resolve the same way every run
+				if n := counts[r.Key]; n > bestN {
+					bestKey, bestN = r.Key, n
+				}
+			}
+			mb.WriteByte(bestKey)
+		}
+		mb.WriteByte('\n')
+	}
+	return art, mb.String(), nil
+}
+
+// offsets finds where the trimmed art sits inside the untrimmed grid.
+func offsets(full, trimmed []string) (row, col int) {
+	for i, l := range full {
+		if strings.TrimSpace(l) != "" {
+			row = i
+			break
+		}
+	}
+	col = math.MaxInt32
+	for _, l := range full {
+		if strings.TrimSpace(l) == "" {
+			continue
+		}
+		if n := len(l) - len(strings.TrimLeft(l, " ")); n < col {
+			col = n
+		}
+	}
+	if col == math.MaxInt32 {
+		col = 0
+	}
+	return row, col
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
 // Width returns the widest line, in characters.
 func Width(art string) int {
 	w := 0

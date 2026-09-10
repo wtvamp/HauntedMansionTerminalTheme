@@ -53,12 +53,56 @@ func run() error {
 	}
 	view := emit.NewView(p, generator)
 
-	chosen, err := emit.Named(*target)
-	if err != nil {
-		return err
+	// "ghosts" is handled below, not by the template machinery.
+	filter := strings.TrimSpace(*target)
+	if filter == "ghosts" {
+		filter = "-none-"
+	} else {
+		filter = strings.TrimSpace(strings.ReplaceAll(","+filter+",", ",ghosts,", ","))
+		filter = strings.Trim(filter, ",")
+	}
+	var chosen []emit.Target
+	if filter != "-none-" {
+		chosen, err = emit.Named(filter)
+		if err != nil {
+			return err
+		}
 	}
 
+	// The portraits are not template targets: they are many files built from
+	// content/ plus the palette, so they run as their own step.
+	wantGhosts := *target == "" || strings.Contains(*target, "ghosts")
 	var stale []string
+	if wantGhosts {
+		ghosts, err := emit.Ghosts(p, "content/ghosts", *outDir)
+		if err != nil {
+			return err
+		}
+		for path, body := range ghosts {
+			if *check {
+				existing, err := os.ReadFile(path)
+				switch {
+				case errors.Is(err, os.ErrNotExist):
+					stale = append(stale, path+" (missing)")
+				case err != nil:
+					return err
+				case string(existing) != string(body):
+					stale = append(stale, path)
+				}
+				continue
+			}
+			if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+				return err
+			}
+			if err := os.WriteFile(path, body, 0o644); err != nil {
+				return err
+			}
+		}
+		if !*check && !*quiet {
+			fmt.Printf("  materialised %d coloured portraits in %s\n", len(ghosts), filepath.Join(*outDir, "ghosts"))
+		}
+	}
+
 	for _, t := range chosen {
 		body, err := emit.Render(t, view)
 		if err != nil {

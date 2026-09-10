@@ -39,6 +39,8 @@ func run() error {
 	flag.BoolVar(&o.Invert, "invert", o.Invert, "swap light and dark, for a light background")
 	flag.BoolVar(&o.Trim, "trim", o.Trim, "drop blank edge rows and columns")
 	out := flag.String("o", "", "write here instead of stdout")
+	regionsPath := flag.String("regions", "", "companion region image; enables the colour map")
+	mapOut := flag.String("map", "", "write the colour map here (requires -regions)")
 	flag.Parse()
 
 	if flag.NArg() != 1 {
@@ -57,9 +59,35 @@ func run() error {
 		return fmt.Errorf("decode %s: %w (png, jpeg and gif are supported)", flag.Arg(0), err)
 	}
 
-	art, err := portrait.Convert(img, o)
-	if err != nil {
-		return err
+	var art, colorMap string
+	if *regionsPath != "" {
+		rf, err := os.Open(*regionsPath)
+		if err != nil {
+			return err
+		}
+		defer rf.Close()
+		rimg, _, err := image.Decode(rf)
+		if err != nil {
+			return fmt.Errorf("decode regions %s: %w", *regionsPath, err)
+		}
+		art, colorMap, err = portrait.ConvertWithRegions(img, rimg, o)
+		if err != nil {
+			return err
+		}
+	} else {
+		if *mapOut != "" {
+			return fmt.Errorf("-map needs -regions: the colour map comes from the region image")
+		}
+		art, err = portrait.Convert(img, o)
+		if err != nil {
+			return err
+		}
+	}
+
+	if *mapOut != "" {
+		if err := os.WriteFile(*mapOut, []byte(colorMap), 0o644); err != nil {
+			return err
+		}
 	}
 
 	if *out == "" {

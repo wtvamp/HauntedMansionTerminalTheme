@@ -67,8 +67,11 @@ hex value into a Go file or a shell script — there is a test that fails if you
 
 Adding a quote is a text file, not a code change: append a line to `content/quotes.txt`.
 
-The portraits in `content/ghosts/` are generated — `tools/render-portraits/` draws them and
-`cmd/portrait` converts them to ASCII. `make portraits` redraws the lot (needs Python with Pillow).
+The portraits in `content/ghosts/` are generated and **in colour** — `tools/render-portraits/` draws
+them, `cmd/portrait` converts them to ASCII plus a region map, and `make generate` bakes the region
+map against the palette into `dist/ghosts/*.ans`. Colours are ANSI slot numbers, so the art follows
+whatever theme your terminal has loaded and degrades cleanly to 16 colours. `make portraits` redraws
+the lot (needs Python with Pillow); `NO_COLOR=1` turns it all off.
 
 `portrait` works on any image, so you can point it at your own:
 

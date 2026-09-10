@@ -42,6 +42,13 @@ typeset -g HM_UI_SELECTION_BACKGROUND='#2B3242'
 typeset -g HM_UI_SELECTION_FOREGROUND='#E6ECF5'
 
 # Roles: semantic names the prompt uses, so the prompt never names a color.
+typeset -g HM_ROLE_ART_ACCENT=15
+typeset -g HM_ROLE_ART_CLOTH=4
+typeset -g HM_ROLE_ART_FRAME=3
+typeset -g HM_ROLE_ART_GLOW=10
+typeset -g HM_ROLE_ART_GROUND=0
+typeset -g HM_ROLE_ART_HAIR=5
+typeset -g HM_ROLE_ART_SKIN=14
 typeset -g HM_ROLE_GREETING_GHOST=14
 typeset -g HM_ROLE_GREETING_QUOTE=13
 typeset -g HM_ROLE_PROMPT_ERROR=1

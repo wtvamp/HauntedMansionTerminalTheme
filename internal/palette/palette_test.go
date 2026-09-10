@@ -147,6 +147,7 @@ var textRoles = []string{
 	"prompt_path", "prompt_git_clean", "prompt_git_dirty", "prompt_git_ahead",
 	"prompt_error", "prompt_symbol", "greeting_ghost", "greeting_quote",
 	"ride_candle", "ride_spectre", "ride_ectoplasm", "ride_velvet",
+	"art_frame", "art_cloth", "art_hair", "art_skin", "art_glow", "art_accent",
 }
 
 func TestTextRolesAreLegible(t *testing.T) {

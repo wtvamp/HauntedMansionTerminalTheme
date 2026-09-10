@@ -150,6 +150,20 @@ func (p *Palette) MustColor(name string) Color {
 	return c
 }
 
+// SlotOf returns the ANSI slot (0-15) a name resolves to, following roles.
+// Colors that are not ANSI slots (the ui colors) return false.
+func (p *Palette) SlotOf(name string) (int, bool) {
+	if target, ok := p.Roles[name]; ok {
+		name = target
+	}
+	for i, key := range p.Names() {
+		if key == name {
+			return i, true
+		}
+	}
+	return 0, false
+}
+
 // Ordered returns the 16 ANSI colors in slot order: 0-7 normal, then 8-15 bright.
 // This is the order every emulator format expects.
 func (p *Palette) Ordered() []Color {

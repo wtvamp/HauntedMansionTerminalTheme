@@ -42,11 +42,14 @@ check: build test ## Verify dist/ is not stale, then test
 portraits: build ## Re-render the ghost art from tools/render-portraits/
 	@python3 tools/render-portraits/portraits.py $(PORTRAIT_TMP)
 	@for f in $(PORTRAIT_TMP)/*.png; do \
+		case $$f in *.regions.png) continue;; esac; \
 		n=$$(basename $$f .png); \
 		$(BIN)/portrait -w 46 -ramp dense -black 0.09 -gamma 1.1 \
+			-regions $(PORTRAIT_TMP)/$$n.regions.png \
+			-map content/ghosts/$$n.map \
 			-o content/ghosts/$$n.txt $$f; \
 	done
-	@echo "  redrew content/ghosts/"
+	@echo "  redrew content/ghosts/ -- run 'make generate' to recolour dist/"
 
 fmt: ## Format Go sources
 	@$(GO) fmt ./...

@@ -9,14 +9,14 @@ def constance():
     def veil(d):
         d.polygon([(W*0.16,H), (W*0.22,H*0.44), (W*0.36,H*0.10),
                    (W*0.64,H*0.10), (W*0.78,H*0.44), (W*0.84,H)], fill=255)
-    lay(img, mask(veil), key.point(lambda p:int(p*0.26)), blur=26)
+    lay(img, mask(veil), key.point(lambda p:int(p*0.26)), blur=26, region=CLOTH)
     box = bust(img, key, head=(0.33,0.16,0.67,0.62), shoulder_gain=0.34)
     def hair(d):
         d.ellipse([W*0.30,H*0.12,W*0.70,H*0.46], fill=255)
         d.ellipse([W*0.355,H*0.19,W*0.645,H*0.50], fill=0)
-    lay(img, mask(hair), 34, blur=11)
+    lay(img, mask(hair), 34, blur=11, region=HAIR)
     face(img, box, eye_y=0.42, hollow=True, mouth=0.50)
-    d = ImageDraw.Draw(img)
+    d = both(img, ACCENT)
     # hatchet over the shoulder
     d.line([(W*0.70,H*0.99),(W*0.82,H*0.70)], fill=170, width=11)
     d.polygon([(W*0.795,H*0.745),(W*0.94,H*0.66),(W*0.925,H*0.575),(W*0.775,H*0.665)], fill=225)
@@ -29,17 +29,18 @@ def leota():
     # and the ball's own rim stops reading as an edge.
     glow = radial(W*0.50, H*0.42, W*0.34, 150, 0, falloff=2.6)
     img.paste(glow, (0,0), glow)
+    regions().paste(Image.new("L",(W,H),GLOW), (0,0), glow.point(lambda p: 255 if p > 40 else 0))
     key = key_light(0.42, 0.32, 0.75)
     box = bust(img, key, head=(0.37,0.22,0.63,0.56), neck=False, shoulders=None, face_gain=1.0)
     def hair(d):
         d.ellipse([W*0.335,H*0.18,W*0.665,H*0.46], fill=255)
         d.ellipse([W*0.385,H*0.235,W*0.615,H*0.50], fill=0)
-    lay(img, mask(hair), 26, blur=11)
+    lay(img, mask(hair), 26, blur=11, region=HAIR)
     face(img, box, eye_y=0.42, mouth=0.54, gaze=252)
     img = finish(img)
     img = vignette(img, r=0.95)
     # Ball and stand drawn last, so the vignette cannot erase the rim.
-    d = ImageDraw.Draw(img)
+    d = both(img, FRAME)
     d.ellipse([W*0.19,H*0.11,W*0.81,H*0.73], outline=170, width=6)
     d.arc([W*0.22,H*0.14,W*0.78,H*0.70], 155, 245, fill=250, width=8)
     d.arc([W*0.22,H*0.14,W*0.78,H*0.70], 20, 70, fill=120, width=5)
@@ -57,9 +58,9 @@ def gracey():
     def hair(d):
         d.ellipse([W*0.32,H*0.11,W*0.68,H*0.36], fill=255)
         d.ellipse([W*0.365,H*0.17,W*0.635,H*0.40], fill=0)
-    lay(img, mask(hair), 45, blur=10)
+    lay(img, mask(hair), 45, blur=10, region=HAIR)
     face(img, box, eye_y=0.42, mouth=0.54)
-    d = ImageDraw.Draw(img)
+    d = both(img, CLOTH)
     # cravat and lapels
     d.polygon([(W*0.50,H*0.74),(W*0.40,H*0.86),(W*0.50,H*1.0),(W*0.60,H*0.86)], fill=190)
     d.line([(W*0.36,H*0.78),(W*0.24,H*1.0)], fill=120, width=9)
@@ -78,21 +79,23 @@ def hatbox():
     img = canvas(); key = key_light(0.36, 0.26, 1.1)
     def cloak(d):
         d.polygon([(W*0.50,H*0.40),(W*0.10,H*1.05),(W*0.90,H*1.05)], fill=255)
-    lay(img, mask(cloak), key.point(lambda p:int(p*0.34)), blur=16)
+    lay(img, mask(cloak), key.point(lambda p:int(p*0.34)), blur=16, region=CLOTH)
     box = bust(img, key, head=(0.36,0.20,0.64,0.56), neck=False, shoulders=None, face_gain=0.85)
     face(img, box, eye_y=0.42, hollow=True, mouth=0.56)
-    d = ImageDraw.Draw(img)
+    d = both(img, CLOTH)
     # top hat
     d.rectangle([W*0.36,H*0.02,W*0.64,H*0.22], fill=48)
     d.ellipse([W*0.27,H*0.19,W*0.73,H*0.27], fill=62)
     d.rectangle([W*0.36,H*0.14,W*0.64,H*0.18], fill=110)
     # hatbox, held low, with a faint second face in it
-    d.ellipse([W*0.60,H*0.72,W*0.98,H*0.82], fill=95)
-    d.rectangle([W*0.60,H*0.77,W*0.98,H*0.98], fill=80)
-    d.ellipse([W*0.60,H*0.93,W*0.98,H*1.02], fill=60)
-    d.ellipse([W*0.685,H*0.83,W*0.725,H*0.865], fill=225)
-    d.ellipse([W*0.855,H*0.83,W*0.895,H*0.865], fill=225)
-    d.arc([W*0.70,H*0.885,W*0.88,H*0.925], 200, 340, fill=200, width=4)
+    b = both(img, FRAME)
+    b.ellipse([W*0.60,H*0.72,W*0.98,H*0.82], fill=95)
+    b.rectangle([W*0.60,H*0.77,W*0.98,H*0.98], fill=80)
+    b.ellipse([W*0.60,H*0.93,W*0.98,H*1.02], fill=60)
+    g = both(img, GLOW)
+    g.ellipse([W*0.685,H*0.83,W*0.725,H*0.865], fill=225)
+    g.ellipse([W*0.855,H*0.83,W*0.895,H*0.865], fill=225)
+    g.arc([W*0.70,H*0.885,W*0.88,H*0.925], 200, 340, fill=200, width=4)
     return oval_frame(vignette(finish(img)))
 
 def raven():
@@ -101,17 +104,19 @@ def raven():
     def body(d):
         d.ellipse([W*0.28,H*0.30,W*0.72,H*0.78], fill=255)
         d.ellipse([W*0.52,H*0.16,W*0.78,H*0.40], fill=255)
-    lay(img, mask(body), key.point(lambda p:int(p*0.55)), blur=9)
-    d = ImageDraw.Draw(img)
+    lay(img, mask(body), key.point(lambda p:int(p*0.55)), blur=9, region=CLOTH)
+    d = both(img, ACCENT)
     d.polygon([(W*0.74,H*0.26),(W*0.95,H*0.30),(W*0.74,H*0.34)], fill=180)  # beak
     d.ellipse([W*0.655,H*0.235,W*0.695,H*0.275], fill=245)                   # eye
     d.ellipse([W*0.665,H*0.245,W*0.685,H*0.265], fill=20)
+    d = ImageDraw.Draw(img)
     def wing(dd):
         dd.polygon([(W*0.34,H*0.38),(W*0.66,H*0.50),(W*0.40,H*0.74)], fill=255)
-    lay(img, mask(wing), 60, blur=7)
+    lay(img, mask(wing), 60, blur=7, region=HAIR)
     for i in range(5):
         d.arc([W*(0.34+i*0.02),H*(0.40+i*0.04),W*(0.66-i*0.03),H*(0.60+i*0.03)], 340, 60, fill=100, width=3)
-    d.line([(W*0.10,H*0.86),(W*0.90,H*0.86)], fill=120, width=7)            # perch
+    pb = both(img, FRAME)
+    pb.line([(W*0.10,H*0.86),(W*0.90,H*0.86)], fill=120, width=7)           # perch
     d.line([(W*0.46,H*0.76),(W*0.46,H*0.86)], fill=150, width=5)
     d.line([(W*0.56,H*0.76),(W*0.56,H*0.86)], fill=150, width=5)
     return vignette(finish(img), r=0.92)
@@ -124,8 +129,8 @@ def hitchhikers():
         def g(d, cx=cx, s=scale):
             d.ellipse([W*(cx-0.085*s),H*(0.20),W*(cx+0.085*s),H*(0.20+0.20*s)], fill=255)
             d.polygon([(W*cx,H*(0.36*s+0.02)),(W*(cx-0.15*s),H*0.92),(W*(cx+0.15*s),H*0.92)], fill=255)
-        lay(img, mask(g), key.point(lambda p:int(p*(0.62+0.12*i))), blur=10)
-        d = ImageDraw.Draw(img)
+        lay(img, mask(g), key.point(lambda p:int(p*(0.62+0.12*i))), blur=10, region=GLOW)
+        d = both(img, ACCENT)
         ey = H*0.28
         for ex in (W*(cx-0.045), W*(cx+0.045)):
             d.ellipse([ex-13,ey-11,ex+13,ey+11], fill=10)
@@ -147,17 +152,21 @@ def tombstone():
     def stone(d):
         d.rounded_rectangle([W*0.22,H*0.18,W*0.78,H*0.88], radius=int(W*0.26), fill=255)
         d.rectangle([W*0.22,H*0.55,W*0.78,H*0.88], fill=255)
-    lay(img, mask(stone), key.point(lambda p:int(p*0.62)), blur=8)
-    d = ImageDraw.Draw(img)
+    lay(img, mask(stone), key.point(lambda p:int(p*0.62)), blur=8, region=FRAME)
+    # The carved lettering stays in the stone's own region. Tagged as an accent
+    # it is sub-cell at 46 columns and speckles the whole stone with stray
+    # colour instead of reading as engraving.
+    d = both(img, FRAME)
     d.rounded_rectangle([W*0.27,H*0.24,W*0.73,H*0.82], radius=int(W*0.21), outline=40, width=5)
     # carved lettering, suggested rather than spelled
     for i, (y, wfrac) in enumerate(((0.36,0.22),(0.46,0.30),(0.54,0.26),(0.62,0.30),(0.70,0.18))):
         d.line([(W*(0.5-wfrac/2),H*y),(W*(0.5+wfrac/2),H*y)], fill=45, width=7)
     d.arc([W*0.40,H*0.26,W*0.60,H*0.34], 180, 360, fill=35, width=6)
-    d.rectangle([W*0.12,H*0.86,W*0.88,H*0.96], fill=55)                # plinth
+    both(img, FRAME).rectangle([W*0.12,H*0.86,W*0.88,H*0.96], fill=55)  # plinth
+    gr = both(img, GLOW)
     for i in range(5):                                                  # grass
         x = W*(0.16+i*0.17)
-        d.arc([x-30,H*0.90,x+30,H*1.02], 200, 340, fill=95, width=4)
+        gr.arc([x-30,H*0.90,x+30,H*1.02], 200, 340, fill=95, width=4)
     return vignette(finish(img), r=0.95)
 
 # A full scene (a tightrope walker over an alligator) was tried and cut: at 46

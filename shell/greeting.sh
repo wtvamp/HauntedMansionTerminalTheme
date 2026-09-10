@@ -26,8 +26,15 @@
   local ghost_color=${HM_ROLE_GREETING_GHOST:-14}
   local quote_color=${HM_ROLE_GREETING_QUOTE:-8}
 
+  # Prefer the pre-coloured portraits in dist/. They are generated with the
+  # escapes already baked in, because colouring a thousand cells in zsh on every
+  # shell start would spend the whole latency budget. Fall back to the plain
+  # ASCII when colour is off or dist/ has not been generated yet.
   local -a ghosts
-  ghosts=( $root/content/ghosts/*.txt(N) )
+  if [[ -z $NO_COLOR && -d $root/dist/ghosts ]]; then
+    ghosts=( $root/dist/ghosts/*.ans(N) )
+  fi
+  (( $#ghosts )) || ghosts=( $root/content/ghosts/*.txt(N) )
   (( $#ghosts )) || return 0
 
   local -a quotes
@@ -40,10 +47,18 @@
 
   # Raw SGR rather than print -P: the art contains % and backslashes that prompt
   # expansion would eat, and one escape either side is cheaper than escaping it.
-  local on=$'\e[38;5;'${ghost_color}m dim=$'\e[38;5;'${quote_color}m off=$'\e[0m'
+  local dim=$'\e[38;5;'${quote_color}m off=$'\e[0m'
 
   print -r -- ""
-  print -r -- "${on}$(<$ghost)${off}"
-  print -r -- "  ${dim}${quote}${off}"
+  if [[ -n $NO_COLOR ]]; then
+    print -r -- "$(<$ghost)"
+    print -r -- "  ${quote}"
+  elif [[ $ghost == *.ans ]]; then
+    print -r -- "$(<$ghost)"        # already coloured, per region
+    print -r -- "  ${dim}${quote}${off}"
+  else
+    print -r -- $'\e[38;5;'${ghost_color}m"$(<$ghost)"${off}
+    print -r -- "  ${dim}${quote}${off}"
+  fi
   print -r -- ""
 }
