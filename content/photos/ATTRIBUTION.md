@@ -26,6 +26,7 @@ photos are excluded, because this repository is public.
 | `hearse.jpg` | mrkathika | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/) | [source](https://www.flickr.com/photos/23842402@N07/2601481374) |
 | `hitchhiking-ghosts.jpg` | Danny Thompson Jr | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) | [source](https://www.flickr.com/photos/64985588@N06/6818745572) |
 | `lemme-outta-here.jpg` | gruntzooki | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/) | [source](https://www.flickr.com/photos/37996580417@N01/53022629328) |
+| `little-leota.jpg` | gruntzooki | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/) | [source](https://www.flickr.com/photos/37996580417@N01/54575264117) |
 | `mansion.jpg` | Elisa.rolle | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [source](https://commons.wikimedia.org/wiki/File:Haunted_Mansion,_Disneyland,_CA.jpg) |
 | `mausoleum.jpg` | Wacky Windjammer | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [source](https://commons.wikimedia.org/wiki/File:Haunted_Mansion_(Magic_Kingdom)_3.jpg) |
 | `organ.jpg` | Sam Howzit | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) | [source](https://www.flickr.com/photos/12508217@N08/8304864763) |
