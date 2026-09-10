@@ -16,6 +16,7 @@ import (
 	"os"
 	"strings"
 
+	"github.com/wtvamp/HauntedMansionTerminalTheme/internal/palette"
 	"github.com/wtvamp/HauntedMansionTerminalTheme/internal/portrait"
 )
 
@@ -39,8 +40,11 @@ func run() error {
 	flag.BoolVar(&o.Invert, "invert", o.Invert, "swap light and dark, for a light background")
 	flag.BoolVar(&o.Trim, "trim", o.Trim, "drop blank edge rows and columns")
 	out := flag.String("o", "", "write here instead of stdout")
-	regionsPath := flag.String("regions", "", "companion region image; enables the colour map")
-	mapOut := flag.String("map", "", "write the colour map here (requires -regions)")
+	blocks := flag.Bool("blocks", false, "render with half-block glyphs and colour instead of a character ramp")
+	quantize := flag.Bool("quantize", true, "with -blocks, snap colours to the theme palette and emit ANSI slots")
+	vignette := flag.Float64("vignette", 0.35, "with -blocks, how much to darken the edges (0 disables)")
+	saturation := flag.Float64("saturation", 1.0, "with -blocks, colour intensity")
+	autocontrast := flag.Bool("autocontrast", false, "with -blocks, stretch the brightness range to full first")
 	flag.Parse()
 
 	if flag.NArg() != 1 {
@@ -59,35 +63,28 @@ func run() error {
 		return fmt.Errorf("decode %s: %w (png, jpeg and gif are supported)", flag.Arg(0), err)
 	}
 
-	var art, colorMap string
-	if *regionsPath != "" {
-		rf, err := os.Open(*regionsPath)
+	if *blocks {
+		bo := portrait.BlockDefaults()
+		bo.Width, bo.Aspect, bo.Gamma = o.Width, o.Aspect, o.Gamma
+		bo.Quantize, bo.Vignette = *quantize, *vignette
+		bo.Saturation, bo.AutoContrast = *saturation, *autocontrast
+		if *quantize {
+			bo.Palette = palette.Default().Ordered()
+		}
+		body, err := portrait.Blocks(img, bo)
 		if err != nil {
 			return err
 		}
-		defer rf.Close()
-		rimg, _, err := image.Decode(rf)
-		if err != nil {
-			return fmt.Errorf("decode regions %s: %w", *regionsPath, err)
+		if *out == "" {
+			fmt.Print(body)
+			return nil
 		}
-		art, colorMap, err = portrait.ConvertWithRegions(img, rimg, o)
-		if err != nil {
-			return err
-		}
-	} else {
-		if *mapOut != "" {
-			return fmt.Errorf("-map needs -regions: the colour map comes from the region image")
-		}
-		art, err = portrait.Convert(img, o)
-		if err != nil {
-			return err
-		}
+		return os.WriteFile(*out, []byte(body), 0o644)
 	}
 
-	if *mapOut != "" {
-		if err := os.WriteFile(*mapOut, []byte(colorMap), 0o644); err != nil {
-			return err
-		}
+	art, err := portrait.Convert(img, o)
+	if err != nil {
+		return err
 	}
 
 	if *out == "" {

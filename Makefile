@@ -11,11 +11,9 @@ ZSHDIR  ?= $(HOME)/.zshrc.d
 # CONJURE_TARGET selects a single emulator; empty means all of them.
 CONJURE_TARGET ?=
 
-# Scratch space for rendered portrait PNGs; they are not committed.
-PORTRAIT_TMP ?= $(BIN)/portraits
 
 .DEFAULT_GOAL := help
-.PHONY: help build generate install uninstall test check demo fmt clean portraits
+.PHONY: help build generate install uninstall test check demo fmt clean
 
 help: ## Show this help
 	@grep -hE '^[a-z-]+:.*?## ' $(MAKEFILE_LIST) | awk -F':.*?## ' '{printf "  \033[36m%-12s\033[0m %s\n", $$1, $$2}'
@@ -37,19 +35,6 @@ test: ## Run the test suite
 # rather than shipping a theme whose files disagree with its source.
 check: build test ## Verify dist/ is not stale, then test
 	@$(BIN)/conjure -check
-
-# Needs Python with Pillow. Contributors do not: content/ghosts/*.txt is committed.
-portraits: build ## Re-render the ghost art from tools/render-portraits/
-	@python3 tools/render-portraits/portraits.py $(PORTRAIT_TMP)
-	@for f in $(PORTRAIT_TMP)/*.png; do \
-		case $$f in *.regions.png) continue;; esac; \
-		n=$$(basename $$f .png); \
-		$(BIN)/portrait -w 46 -ramp dense -black 0.09 -gamma 1.1 \
-			-regions $(PORTRAIT_TMP)/$$n.regions.png \
-			-map content/ghosts/$$n.map \
-			-o content/ghosts/$$n.txt $$f; \
-	done
-	@echo "  redrew content/ghosts/ -- run 'make generate' to recolour dist/"
 
 fmt: ## Format Go sources
 	@$(GO) fmt ./...

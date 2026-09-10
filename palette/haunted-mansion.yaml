@@ -76,21 +76,8 @@ roles:
   prompt_git_ahead: magenta
   prompt_error:     red
   prompt_symbol:    magenta
-  greeting_ghost:   bright_cyan
   greeting_quote:   bright_magenta
   ride_candle:      bright_yellow
   ride_spectre:     bright_cyan
   ride_ectoplasm:   bright_green
   ride_velvet:      red
-
-  # Portrait regions. The renderer tags every pixel with a region and the art
-  # stores those tags, so a palette change recolours the portraits with no
-  # redraw. Keep these pointing at slots, not at ui colours: the art is emitted
-  # as ANSI slot numbers so it inherits whatever the terminal's theme defines.
-  art_ground:       black
-  art_frame:        yellow
-  art_cloth:        blue
-  art_hair:         magenta
-  art_skin:         bright_cyan
-  art_glow:         bright_green
-  art_accent:       bright_white

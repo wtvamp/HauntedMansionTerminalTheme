@@ -3,8 +3,6 @@ package portrait_test
 import (
 	"image"
 	"image/color"
-	"os"
-	"path/filepath"
 	"strings"
 	"testing"
 
@@ -84,74 +82,5 @@ func TestBadOptions(t *testing.T) {
 	o.Black, o.White = 0.9, 0.1
 	if _, err := portrait.Convert(gradient(10, 10), o); err == nil {
 		t.Error("inverted clip points should error")
-	}
-}
-
-// TestShippedArt guards what the greeting can actually display. The greeting
-// neither reflows nor truncates, so art that is too wide is corrupt on a narrow
-// terminal and art that is too tall scrolls the prompt off screen the moment a
-// shell opens.
-// TestEveryPortraitHasAMap keeps the two halves of a portrait together. Art
-// without a map silently loses its colour; a map without art is dead weight.
-func TestEveryPortraitHasAMap(t *testing.T) {
-	arts, _ := filepath.Glob("../../content/ghosts/*.txt")
-	maps, _ := filepath.Glob("../../content/ghosts/*.map")
-	if len(arts) != len(maps) {
-		t.Fatalf("%d portraits but %d colour maps; run `make portraits`", len(arts), len(maps))
-	}
-	for _, a := range arts {
-		name := strings.TrimSuffix(a, ".txt")
-		mb, err := os.ReadFile(name + ".map")
-		if err != nil {
-			t.Errorf("%s has no colour map", filepath.Base(a))
-			continue
-		}
-		ab, _ := os.ReadFile(a)
-		artLines := strings.Split(strings.TrimRight(string(ab), "\n"), "\n")
-		mapLines := strings.Split(strings.TrimRight(string(mb), "\n"), "\n")
-		if len(mapLines) != len(artLines) {
-			t.Errorf("%s: art has %d rows, map has %d", filepath.Base(a), len(artLines), len(mapLines))
-		}
-		for _, line := range mapLines {
-			for i := 0; i < len(line); i++ {
-				if _, ok := portrait.RoleForKey(line[i]); !ok {
-					t.Errorf("%s: map uses unknown region key %q", filepath.Base(name+".map"), line[i])
-					break
-				}
-			}
-		}
-	}
-}
-
-func TestShippedArt(t *testing.T) {
-	const (
-		maxCols = 80 // the narrowest terminal we promise to look right in
-		maxRows = 23 // leaves a prompt line in a default 24-row terminal
-	)
-	files, err := filepath.Glob("../../content/ghosts/*.txt")
-	if err != nil || len(files) == 0 {
-		t.Fatalf("no ghost art found: %v", err)
-	}
-	for _, f := range files {
-		b, err := os.ReadFile(f)
-		if err != nil {
-			t.Fatal(err)
-		}
-		name := filepath.Base(f)
-		lines := strings.Split(strings.TrimRight(string(b), "\n"), "\n")
-		if len(lines) > maxRows {
-			t.Errorf("%s is %d rows, want <= %d", name, len(lines), maxRows)
-		}
-		for i, line := range lines {
-			if len(line) > maxCols {
-				t.Errorf("%s:%d is %d columns, want <= %d", name, i+1, len(line), maxCols)
-			}
-			for _, r := range line {
-				if r < 0x20 || r > 0x7e {
-					t.Errorf("%s:%d contains non-ASCII %q; the greeting cannot assume Unicode", name, i+1, r)
-					break
-				}
-			}
-		}
 	}
 }

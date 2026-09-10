@@ -74,7 +74,7 @@ func run() error {
 	wantGhosts := *target == "" || strings.Contains(*target, "ghosts")
 	var stale []string
 	if wantGhosts {
-		ghosts, err := emit.Ghosts(p, "content/ghosts", *outDir)
+		ghosts, err := emit.Portraits("content/photos", *outDir)
 		if err != nil {
 			return err
 		}
@@ -99,7 +99,7 @@ func run() error {
 			}
 		}
 		if !*check && !*quiet {
-			fmt.Printf("  materialised %d coloured portraits in %s\n", len(ghosts), filepath.Join(*outDir, "ghosts"))
+			fmt.Printf("  materialised %d portraits in %s\n", len(ghosts), filepath.Join(*outDir, "ghosts"))
 		}
 	}
 

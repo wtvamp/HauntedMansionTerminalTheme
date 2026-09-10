@@ -23,26 +23,21 @@
 
   # Roles fall back to plain slot numbers so the greeting still works if the
   # generated colors are missing (a fresh clone before `make generate`).
-  local ghost_color=${HM_ROLE_GREETING_GHOST:-14}
   local quote_color=${HM_ROLE_GREETING_QUOTE:-8}
 
-  # Prefer the pre-coloured portraits in dist/. They are generated with the
-  # escapes already baked in, because colouring a thousand cells in zsh on every
-  # shell start would spend the whole latency budget. Fall back to the plain
-  # ASCII when colour is off or dist/ has not been generated yet.
+  # The portraits are photographs rendered as half-block glyphs, so they only
+  # exist in colour -- there is no meaningful monochrome form of a photograph.
+  # Under NO_COLOR the greeting is the quote alone.
   local -a ghosts
   if [[ -z $NO_COLOR && -d $root/dist/ghosts ]]; then
     ghosts=( $root/dist/ghosts/*.ans(N) )
   fi
-  (( $#ghosts )) || ghosts=( $root/content/ghosts/*.txt(N) )
-  (( $#ghosts )) || return 0
 
   local -a quotes
   quotes=( ${(f)"$(<$root/content/quotes.txt)"} )
   quotes=( ${quotes:#(\#*|[[:space:]]#)} )
   (( $#quotes )) || return 0
 
-  local ghost=${ghosts[RANDOM % $#ghosts + 1]}
   local quote=${quotes[RANDOM % $#quotes + 1]}
 
   # Raw SGR rather than print -P: the art contains % and backslashes that prompt
@@ -50,15 +45,11 @@
   local dim=$'\e[38;5;'${quote_color}m off=$'\e[0m'
 
   print -r -- ""
-  if [[ -n $NO_COLOR ]]; then
-    print -r -- "$(<$ghost)"
-    print -r -- "  ${quote}"
-  elif [[ $ghost == *.ans ]]; then
-    print -r -- "$(<$ghost)"        # already coloured, per region
+  if (( $#ghosts )); then
+    print -r -- "$(<${ghosts[RANDOM % $#ghosts + 1]})"
     print -r -- "  ${dim}${quote}${off}"
   else
-    print -r -- $'\e[38;5;'${ghost_color}m"$(<$ghost)"${off}
-    print -r -- "  ${dim}${quote}${off}"
+    print -r -- "  ${quote}"
   fi
   print -r -- ""
 }

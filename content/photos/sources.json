@@ -1,0 +1,37 @@
+{
+  "doom-buggies": {
+    "artist": "Cory Doctorow",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Doombuggies,_Haunted_Mansion,_Disneyland.jpg",
+    "license": "CC BY-SA 2.0",
+    "licenseurl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "title": "File:Doombuggies, Haunted Mansion, Disneyland.jpg"
+  },
+  "epitaph": {
+    "artist": "Freddo",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Haunted_Mansion_at_Magic_Kingdom_-_Leota.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseurl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "title": "File:Haunted Mansion at Magic Kingdom - Leota.jpg"
+  },
+  "mansion": {
+    "artist": "Elisa.rolle",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Haunted_Mansion,_Disneyland,_CA.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseurl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "title": "File:Haunted Mansion, Disneyland, CA.jpg"
+  },
+  "mausoleum": {
+    "artist": "Wacky Windjammer",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Haunted_Mansion_(Magic_Kingdom)_3.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseurl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "title": "File:Haunted Mansion (Magic Kingdom) 3.jpg"
+  },
+  "singing-busts": {
+    "artist": "HarshLight",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Disneyland_Haunted_Mansion_Singing_Busts.jpg",
+    "license": "CC BY 2.0",
+    "licenseurl": "https://creativecommons.org/licenses/by/2.0",
+    "title": "File:Disneyland Haunted Mansion Singing Busts.jpg"
+  }
+}

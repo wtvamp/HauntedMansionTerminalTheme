@@ -23,8 +23,8 @@ prompt, a ghost-and-epitaph greeting on every new shell, and an animated ride. F
 | Codegen that produces them | `cmd/conjure/`, `internal/emit/` | Go | Same toolchain as the ride; no second runtime |
 | Shell prompt + greeting | `shell/` | zsh builtins | Runs on **every** shell open — cannot spawn a runtime |
 | The ride | `cmd/doombuggy/`, `internal/ride/` | Go / Bubble Tea | Static binary, zero runtime deps |
-| Lore: quotes + portraits | `content/` | plain text | Contributors add lore without touching code |
-| Portrait pipeline | `tools/render-portraits/`, `cmd/portrait/` | Python + Go | Dev-only; the `.txt` output is committed |
+| Lore: quotes | `content/quotes.txt` | plain text | Contributors add lore without touching code |
+| Portraits | `content/photos/`, `cmd/portrait/` | JPEG + Go | Photographs rendered to colour half-blocks |
 
 Deliberately **not** one language throughout. The greeting's latency budget rules out Node/Python at
 shell startup; the ride's animation rules out pure shell. Do not "unify the stack" — the split is the design.
@@ -38,7 +38,6 @@ make install        # binaries to ~/.local/bin, shell files symlinked into ~/.zs
 make test           # go test ./...
 make check          # what CI runs: build + test + verify dist/ is not stale
 make demo           # run the ride without installing
-make portraits      # redraw content/ghosts/ (needs Python + Pillow)
 make uninstall      # undo make install
 
 go test ./internal/palette -run TestContrast    # single test
@@ -47,7 +46,7 @@ bin/doombuggy --frame graveyard --at 40         # ...at a specific tick
 bin/doombuggy --skip-intro                      # bypass the stretching room
 bin/doombuggy --color 16                        # force a degraded palette
 bin/conjure -list                               # what targets exist
-bin/portrait -w 46 -ramp dense pic.png          # any image -> ASCII
+bin/portrait -blocks -quantize=false -w 58 pic.jpg   # any image -> colour half-blocks
 CONJURE_TARGET=ghostty make generate            # regenerate one emulator
 ```
 
@@ -116,37 +115,45 @@ that prompt expansion mangles.
 ## Content files
 
 - `content/quotes.txt` — one per line, `#` comments and blanks ignored.
-- `content/ghosts/*.txt` — one portrait per file. **ASCII only, ≤80 columns, ≤23 rows** — the greeting
-  neither reflows nor truncates, so wider art is corrupt on a narrow terminal and taller art scrolls
-  the prompt away the moment a shell opens. `TestShippedArt` enforces all three. Box-drawing and
-  Unicode belong in the ride, where capability is known.
+- `content/photos/*.jpg` — the source photographs, downscaled to 900px. Committed so the art is
+  reproducible offline, and because their licences require the attribution in `ATTRIBUTION.md`.
+- `content/photos/render.json` — per-photo crop and exposure. These are **framing decisions, not
+  style**: the sources are underexposed dark-ride interiors and camera framing is not 58-column
+  framing, so each needs its own crop and curve.
+- `content/photos/sources.json`, `ATTRIBUTION.md` — photographer, licence and source URL per file.
+  `TestEveryPhotoIsCredited` fails the build if a photo is missing from either.
 
-- `content/ghosts/*.map` — the colour map beside each portrait, same shape as the art, one character
-  per cell naming a **region** (frame, cloth, hair, skin, glow, accent). Regions resolve to `art_*`
-  palette roles, which is why recolouring the palette recolours the portraits with no redraw.
+Both quotes and photos are data. Adding a quote needs no code change; adding a photo needs a
+`render.json` entry and a credit, and `TestPortraitsFitATerminal` will tell you if the crop is wrong.
 
-  The art is **generated, not hand-drawn**: `tools/render-portraits/` draws source images plus a
-  companion region image, and `cmd/portrait` converts both. `make portraits` regenerates every file,
-  then `make generate` recolours `dist/`. Hand-editing a `.txt` works until the next regeneration
-  overwrites it — change the renderer instead. Read that directory's README first; its constraints
-  (busts not scenes, near-square canvas, one key light, hard details drawn last) are each a thing
-  that was tried and failed.
+### The portraits are photographs, rendered as half-blocks
 
-### Portrait colour is baked at generate time
+This replaced hand-drawn ASCII, then procedurally-drawn ASCII, and the reason both failed is worth
+keeping: **a character ramp cannot render an image at terminal size.** There are only a handful of
+usable brightness steps per cell and no clean subject/background separation, so a photograph comes
+out as noise and a drawing comes out as a blob.
 
-`dist/ghosts/*.ans` are the portraits with escapes already in them, and the greeting just prints one.
-That is not premature optimisation: colouring ~1000 cells in zsh on every shell start would spend the
-whole 30ms budget, and printing a finished file costs one read (measured: 1.8ms all in).
+What works is `▀` with separate foreground and background colour: one cell carries two vertically
+stacked pixels, which doubles vertical resolution and gives real colour. `internal/portrait/blocks.go`.
 
-The escapes are **ANSI slot numbers, not hex**. The terminal resolves slot 14 with whatever theme is
-loaded, so the art is correct at 16 colours, at 256 and in truecolor, and someone running a different
-scheme gets their own palette rather than ours. Do not "improve" this to truecolor hex.
+Two decisions that look wrong and are not:
 
-The ride colours the same art through `Style.Art`, resolving the same map with lipgloss so it
-quantises per capability. A portrait therefore looks the same on shell start as it does in the ride.
+- **Truecolor, not palette slots.** Quantising a photograph to the sixteen theme colours destroys it —
+  tried, measured, discarded. The palette governs the theme's own colours; photographs need their own.
+  This is the one place in the repo where a colour does not come from `palette/haunted-mansion.yaml`.
+- **No monochrome fallback.** There is no meaningful greyscale form of a half-block photograph, so
+  under `NO_COLOR` the greeting prints the quote alone rather than something worse.
 
-Both are data — adding lore needs no code change and no rebuild. The ride reads them through
-`content/embed.go`; the greeting reads them from disk.
+Auto-contrast runs on the **downsampled grid**, not the source image: it is the cells that have to be
+distinguishable, and a bright speck in the original would otherwise anchor the white point and flatten
+everything that matters.
+
+`cmd/portrait` is a general tool, not a one-off — point it at any image:
+
+```bash
+bin/portrait -blocks -quantize=false -w 58 -gamma 1.4 -autocontrast photo.jpg
+bin/portrait -w 46 -ramp dense drawing.png      # the character-ramp path, still there
+```
 
 ## The ride (`cmd/doombuggy`)
 

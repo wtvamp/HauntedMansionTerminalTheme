@@ -67,17 +67,19 @@ hex value into a Go file or a shell script — there is a test that fails if you
 
 Adding a quote is a text file, not a code change: append a line to `content/quotes.txt`.
 
-The portraits in `content/ghosts/` are generated and **in colour** — `tools/render-portraits/` draws
-them, `cmd/portrait` converts them to ASCII plus a region map, and `make generate` bakes the region
-map against the palette into `dist/ghosts/*.ans`. Colours are ANSI slot numbers, so the art follows
-whatever theme your terminal has loaded and degrades cleanly to 16 colours. `make portraits` redraws
-the lot (needs Python with Pillow); `NO_COLOR=1` turns it all off.
+The portraits are **photographs of the ride**, rendered as colour half-block glyphs — real images,
+not ASCII approximations of them. Sources live in `content/photos/` under free licences, credited in
+[`content/photos/ATTRIBUTION.md`](content/photos/ATTRIBUTION.md); `make generate` renders them into
+`dist/ghosts/`. Crop and exposure per photo live in `content/photos/render.json`.
 
-`portrait` works on any image, so you can point it at your own:
+They need a truecolor terminal. Under `NO_COLOR` the greeting prints just the quote — there is no
+meaningful monochrome form of a photograph.
+
+`portrait` works on any image, so point it at your own:
 
 ```sh
-portrait -w 46 -ramp dense photo.jpg
-portrait -w 60 -gamma 1.4 -o content/ghosts/mine.txt dark-photo.png
+portrait -blocks -quantize=false -w 58 -gamma 1.4 -autocontrast photo.jpg
+portrait -w 46 -ramp dense drawing.png     # plain ASCII, for line art
 ```
 
 See `CLAUDE.md` for the architecture and the rules that govern color choices.

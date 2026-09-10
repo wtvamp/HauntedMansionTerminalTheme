@@ -6,15 +6,12 @@
 package contentdata
 
 import (
-	"embed"
+	_ "embed"
 	"strings"
 )
 
 //go:embed quotes.txt
 var quotesRaw string
-
-//go:embed ghosts/*.txt ghosts/*.map
-var ghosts embed.FS
 
 // Quotes returns the quote lines with comments and blanks removed, in file order.
 func Quotes() []string {
@@ -25,41 +22,6 @@ func Quotes() []string {
 			continue
 		}
 		out = append(out, line)
-	}
-	return out
-}
-
-// Ghost returns one piece of art by name, without the .txt suffix.
-func Ghost(name string) (string, bool) {
-	b, err := ghosts.ReadFile("ghosts/" + name + ".txt")
-	if err != nil {
-		return "", false
-	}
-	return strings.TrimRight(string(b), "\n"), true
-}
-
-// GhostMap returns the region map beside a portrait, naming each cell's palette
-// role. Empty when the art has no map.
-func GhostMap(name string) (string, bool) {
-	b, err := ghosts.ReadFile("ghosts/" + name + ".map")
-	if err != nil {
-		return "", false
-	}
-	return strings.TrimRight(string(b), "\n"), true
-}
-
-// GhostNames lists the available art, sorted.
-func GhostNames() []string {
-	entries, err := ghosts.ReadDir("ghosts")
-	if err != nil {
-		return nil
-	}
-	out := make([]string, 0, len(entries))
-	for _, e := range entries {
-		if !strings.HasSuffix(e.Name(), ".txt") {
-			continue
-		}
-		out = append(out, strings.TrimSuffix(e.Name(), ".txt"))
 	}
 	return out
 }

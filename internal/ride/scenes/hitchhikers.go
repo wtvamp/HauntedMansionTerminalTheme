@@ -17,15 +17,20 @@ func (hitchhikers) Name() string  { return "hitchhikers" }
 func (hitchhikers) Title() string { return "The Hitchhiking Ghosts" }
 func (hitchhikers) Ticks() int    { return 64 }
 
+// The ride draws its own figures rather than reusing the greeting's photographs:
+// a photograph cannot slide across the frame or hold a pose, and the scenes are
+// animation, not decoration.
+const hitchhikerArt = `    .-.        .-.        .-.
+   (o o)      (o o)      (o o)
+   | O |      | O |      | O |
+    \ /        \ /        \ /
+   .' '.      .' '.      .' '.
+  /     \    /     \    /     \
+ '~~~~~~~'  '~~~~~~~'  '~~~~~~~'
+    EZRA      PHINEAS      GUS`
+
 func (h hitchhikers) Render(f ride.Frame) string {
-	// Art applies the portrait's own region colours, so the ghosts look the same
-	// here as they do in the shell greeting.
-	art, ok := f.Style.Art("hitchhikers", "ride_ectoplasm")
-	if !ok {
-		// The art is embedded, so this only fires if someone deleted the file —
-		// better a plain line than a blank scene.
-		art = f.Style.Paint("ride_ectoplasm", "Ezra, Phineas and Gus have found a ride")
-	}
+	art := f.Style.Paint("ride_ectoplasm", hitchhikerArt)
 
 	// Slide in from the right over the first half, then hold.
 	slide := 0
