@@ -23,7 +23,8 @@ prompt, a ghost-and-epitaph greeting on every new shell, and an animated ride. F
 | Codegen that produces them | `cmd/conjure/`, `internal/emit/` | Go | Same toolchain as the ride; no second runtime |
 | Shell prompt + greeting | `shell/` | zsh builtins | Runs on **every** shell open — cannot spawn a runtime |
 | The ride | `cmd/doombuggy/`, `internal/ride/` | Go / Bubble Tea | Static binary, zero runtime deps |
-| Lore: quotes + ghost art | `content/` | plain text | Contributors add lore without touching code |
+| Lore: quotes + portraits | `content/` | plain text | Contributors add lore without touching code |
+| Portrait pipeline | `tools/render-portraits/`, `cmd/portrait/` | Python + Go | Dev-only; the `.txt` output is committed |
 
 Deliberately **not** one language throughout. The greeting's latency budget rules out Node/Python at
 shell startup; the ride's animation rules out pure shell. Do not "unify the stack" — the split is the design.
@@ -37,6 +38,7 @@ make install        # binaries to ~/.local/bin, shell files symlinked into ~/.zs
 make test           # go test ./...
 make check          # what CI runs: build + test + verify dist/ is not stale
 make demo           # run the ride without installing
+make portraits      # redraw content/ghosts/ (needs Python + Pillow)
 make uninstall      # undo make install
 
 go test ./internal/palette -run TestContrast    # single test
@@ -45,6 +47,7 @@ bin/doombuggy --frame graveyard --at 40         # ...at a specific tick
 bin/doombuggy --skip-intro                      # bypass the stretching room
 bin/doombuggy --color 16                        # force a degraded palette
 bin/conjure -list                               # what targets exist
+bin/portrait -w 46 -ramp dense pic.png          # any image -> ASCII
 CONJURE_TARGET=ghostty make generate            # regenerate one emulator
 ```
 
@@ -113,9 +116,16 @@ that prompt expansion mangles.
 ## Content files
 
 - `content/quotes.txt` — one per line, `#` comments and blanks ignored.
-- `content/ghosts/*.txt` — one ASCII ghost per file, **ASCII only**, must render at **80 columns** (the
-  greeting does not reflow or truncate). Box-drawing and Unicode belong in the ride, where capability
-  is known. Widest current art is 32 columns.
+- `content/ghosts/*.txt` — one portrait per file. **ASCII only, ≤80 columns, ≤23 rows** — the greeting
+  neither reflows nor truncates, so wider art is corrupt on a narrow terminal and taller art scrolls
+  the prompt away the moment a shell opens. `TestShippedArt` enforces all three. Box-drawing and
+  Unicode belong in the ride, where capability is known.
+
+  The art is **generated, not hand-drawn**: `tools/render-portraits/` draws source images from
+  primitives and `cmd/portrait` converts them. `make portraits` regenerates every file. Hand-editing a
+  `.txt` works until the next regeneration overwrites it — change the renderer instead. Read that
+  directory's README before touching the art; the constraints there (busts not scenes, near-square
+  canvas, one key light, hard details drawn last) are each a thing that was tried and failed.
 
 Both are data — adding lore needs no code change and no rebuild. The ride reads them through
 `content/embed.go`; the greeting reads them from disk.

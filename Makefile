@@ -11,16 +11,20 @@ ZSHDIR  ?= $(HOME)/.zshrc.d
 # CONJURE_TARGET selects a single emulator; empty means all of them.
 CONJURE_TARGET ?=
 
+# Scratch space for rendered portrait PNGs; they are not committed.
+PORTRAIT_TMP ?= $(BIN)/portraits
+
 .DEFAULT_GOAL := help
-.PHONY: help build generate install uninstall test check demo fmt clean
+.PHONY: help build generate install uninstall test check demo fmt clean portraits
 
 help: ## Show this help
 	@grep -hE '^[a-z-]+:.*?## ' $(MAKEFILE_LIST) | awk -F':.*?## ' '{printf "  \033[36m%-12s\033[0m %s\n", $$1, $$2}'
 
-build: ## Compile conjure and doombuggy into bin/
+build: ## Compile conjure, doombuggy and portrait into bin/
 	@$(GO) build -o $(BIN)/conjure ./cmd/conjure
 	@$(GO) build -o $(BIN)/doombuggy ./cmd/doombuggy
-	@echo "  built $(BIN)/conjure and $(BIN)/doombuggy"
+	@$(GO) build -o $(BIN)/portrait ./cmd/portrait
+	@echo "  built $(BIN)/conjure, $(BIN)/doombuggy and $(BIN)/portrait"
 
 generate: build ## Render the palette into dist/
 	@CONJURE_TARGET=$(CONJURE_TARGET) $(BIN)/conjure
@@ -33,6 +37,16 @@ test: ## Run the test suite
 # rather than shipping a theme whose files disagree with its source.
 check: build test ## Verify dist/ is not stale, then test
 	@$(BIN)/conjure -check
+
+# Needs Python with Pillow. Contributors do not: content/ghosts/*.txt is committed.
+portraits: build ## Re-render the ghost art from tools/render-portraits/
+	@python3 tools/render-portraits/portraits.py $(PORTRAIT_TMP)
+	@for f in $(PORTRAIT_TMP)/*.png; do \
+		n=$$(basename $$f .png); \
+		$(BIN)/portrait -w 46 -ramp dense -black 0.09 -gamma 1.1 \
+			-o content/ghosts/$$n.txt $$f; \
+	done
+	@echo "  redrew content/ghosts/"
 
 fmt: ## Format Go sources
 	@$(GO) fmt ./...

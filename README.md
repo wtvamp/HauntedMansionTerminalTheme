@@ -65,8 +65,17 @@ Everything visual comes from `palette/haunted-mansion.yaml`. Change a color ther
 and run `make generate`; never edit anything in `dist/` by hand, and never write a
 hex value into a Go file or a shell script — there is a test that fails if you do.
 
-Adding a quote or a ghost is a text file, not a code change: append a line to
-`content/quotes.txt`, or drop an `.txt` into `content/ghosts/`.
+Adding a quote is a text file, not a code change: append a line to `content/quotes.txt`.
+
+The portraits in `content/ghosts/` are generated — `tools/render-portraits/` draws them and
+`cmd/portrait` converts them to ASCII. `make portraits` redraws the lot (needs Python with Pillow).
+
+`portrait` works on any image, so you can point it at your own:
+
+```sh
+portrait -w 46 -ramp dense photo.jpg
+portrait -w 60 -gamma 1.4 -o content/ghosts/mine.txt dark-photo.png
+```
 
 See `CLAUDE.md` for the architecture and the rules that govern color choices.
 
