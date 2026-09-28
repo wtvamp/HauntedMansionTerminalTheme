@@ -3,3 +3,6 @@ bin/
 .DS_Store
 __pycache__/
 *.pyc
+
+# Playwright MCP scratch output (browser logs, page snapshots). Never commit.
+.playwright-mcp/
